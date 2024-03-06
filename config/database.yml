@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: storage/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
