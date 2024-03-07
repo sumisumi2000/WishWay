@@ -35,3 +35,7 @@
 /config/master.key
 
 /vendor/bundle
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+/node_modules
