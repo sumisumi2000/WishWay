@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # ログイン状態に移行
+      auto_login(@user)
       redirect_to root_path, notice: 'ユーザー作成に成功しました'
     else
       flash.now[:alert] = "ユーザー作成に失敗しました"
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
 
   private
 
-  # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
