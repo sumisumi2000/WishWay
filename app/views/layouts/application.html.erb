@@ -22,7 +22,14 @@
   </head>
 
   <body>
-    <%= render 'shared/before_login_header' %>
+    <!-- ヘッダーの表示 -->
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+    <!-- フラッシュメッセージの表示 -->
+    <%= render "shared/flash" %>
     <%= yield %>
   </body>
 </html>

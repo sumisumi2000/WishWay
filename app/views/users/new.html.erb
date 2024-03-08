@@ -1,0 +1,19 @@
+<%= form_with model: @user do |form| %>
+  <!-- ユーザーネーム入力欄 -->
+  <%= form.label :name, class: "label" %>
+  <%= form.text_field :name, class: "input input-bordered w-full max-w-xs form-control" %>
+
+  <!-- メールアドレス入力欄 -->
+  <%= form.label :email, class: "label" %>
+  <%= form.text_field :email, class: "input input-bordered w-full max-w-xs form-control" %>
+
+  <!-- パスワード入力欄 -->
+  <%= form.label :password, class: "label" %>
+  <%= form.password_field :password, class: "input input-bordered w-full max-w-xs form-control" %>
+
+  <!-- パスワード確認入力欄 -->
+  <%= form.label :password_confirmation, class: "label" %>
+  <%= form.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs form-control" %>
+
+  <%= form.submit class: "btn" %>
+<% end %>

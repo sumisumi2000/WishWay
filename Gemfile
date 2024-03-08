@@ -70,4 +70,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# TailwindCSS & DaisyUI
 gem 'cssbundling-rails'
+
+# Sorcery
+gem 'sorcery'
