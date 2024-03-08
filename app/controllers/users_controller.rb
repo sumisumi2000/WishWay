@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  skip_before_action :require_login, only: [:new, :create]
   def new
     @user = User.new
   end
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, notice: 'ユーザー作成に成功しました'
     else
-      flash[:alert] = "ユーザー作成に失敗しました"
+      flash.now[:alert] = "ユーザー作成に失敗しました"
       render :new, status: :unprocessable_entity
     end
   end

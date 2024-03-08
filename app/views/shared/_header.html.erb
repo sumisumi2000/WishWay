@@ -1,6 +1,8 @@
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a class="font-kiwimaru btn btn-ghost text-xl">WishWay</a>
+    <div class="font-kiwimaru btn btn-ghost text-xl">
+      <%= link_to 'WishWay', root_path %>
+    </div>
   </div>
   <div class="flex-none">
     <ul class="font-kiwimaru menu menu-horizontal px-1">
@@ -13,7 +15,9 @@
           <ul class="p-2 bg-base-100 rounded-t-none">
             <li><a>マイリスト</a></li>
             <li><a>アカウント設定</a></li>
-            <li><a>ログアウト</a></li>
+            <li>
+              <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
+            </li>
           </ul>
         </details>
       </li>
