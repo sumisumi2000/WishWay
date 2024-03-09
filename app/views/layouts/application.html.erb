@@ -30,6 +30,9 @@
     <% end %>
     <!-- フラッシュメッセージの表示 -->
     <%= render "shared/flash" %>
-    <%= yield %>
+    <!-- 本体 -->
+    <div class="w-5/6 mx-auto max-w-screen-xl">
+      <%= yield %>
+    </div>
   </body>
 </html>

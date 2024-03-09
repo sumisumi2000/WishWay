@@ -1,1 +1,12 @@
-<%= render 'form' %>
+<%= form_with url: login_path, method: :post do |form| %>
+
+  <!-- メールアドレス入力欄 -->
+  <%= form.label :email, class: "label" %>
+  <%= form.text_field :email, class: "input input-bordered w-full max-w-xs form-control" %>
+
+  <!-- パスワード入力欄 -->
+  <%= form.label :password, class: "label" %>
+  <%= form.password_field :password, class: "input input-bordered w-full max-w-xs form-control" %>
+
+  <%= form.submit 'ログイン', class: "btn" %>
+<% end %>
