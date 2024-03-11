@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_052654) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_11_074747) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -22,12 +22,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_052654) do
   end
 
   create_table "wish_lists", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_wish_lists_on_user_id"
   end
 
+  create_table "wishes", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "wish_list_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wish_list_id"], name: "index_wishes_on_wish_list_id"
+  end
+
   add_foreign_key "wish_lists", "users"
+  add_foreign_key "wishes", "wish_lists"
 end
