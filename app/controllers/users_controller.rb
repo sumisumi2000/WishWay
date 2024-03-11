@@ -7,11 +7,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # ユーザーの WishList を作成
+      @user.create_wish_list!(title: "#{@user.name}のバケットリスト")
       # ログイン状態に移行
       auto_login(@user)
+      # トップページに遷移
       redirect_to root_path, notice: 'ユーザー作成に成功しました'
     else
       flash.now[:alert] = "ユーザー作成に失敗しました"
+      # 新規登録ページを再表示
       render :new, status: :unprocessable_entity
     end
   end

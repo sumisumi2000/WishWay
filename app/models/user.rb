@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_one :wishlist
+  has_one :wish_list, dependent: :destroy
 
   # 新しいデータもしくは crypted_password が変更された場合
   # 最低3文字のバリデーションを設定
