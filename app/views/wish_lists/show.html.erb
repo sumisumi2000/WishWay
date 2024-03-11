@@ -1,1 +1,9 @@
-<%= current_user.wish_list.title %>
+<h1>
+  <%= current_user.wish_list.title %>
+</h1>
+
+<%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
+
+<button class="btn btn-secondary">
+  <%= link_to '新規作成', new_wish_path %>
+</button>

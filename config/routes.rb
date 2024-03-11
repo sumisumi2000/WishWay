@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post 'login' => "user_sessions#create"
   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # WishList
-  resources :wish_lists, only: %i[show]
+  resource :wish_list, only: %i[show]
+  # Wihs
+  resources :wishes, only: %i[new create]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

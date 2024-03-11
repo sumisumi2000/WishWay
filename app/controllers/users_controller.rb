@@ -12,8 +12,8 @@ class UsersController < ApplicationController
       @user.create_wish_list!(title: "#{@user.name}のバケットリスト")
       # ログイン状態に移行
       auto_login(@user)
-      # トップページに遷移
-      redirect_to wish_list_path(@user), notice: 'ユーザー作成に成功しました'
+      # マイリストページに遷移
+      redirect_to wish_list_path, notice: 'ユーザー作成に成功しました'
     else
       flash.now[:alert] = "ユーザー作成に失敗しました"
       # 新規登録ページを再表示
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   private
 
   # Only allow a list of trusted parameters through
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end
