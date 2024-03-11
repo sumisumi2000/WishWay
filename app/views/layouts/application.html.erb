@@ -28,8 +28,10 @@
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
-    <!-- フラッシュメッセージの表示 -->
-    <%= render "shared/flash" %>
-    <%= yield %>
+    <div class="w-5/6 mx-auto max-w-screen-xl">
+      <!-- フラッシュメッセージの表示 -->
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
