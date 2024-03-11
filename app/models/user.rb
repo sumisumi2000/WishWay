@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_one :wish_list, dependent: :destroy
+
   # 新しいデータもしくは crypted_password が変更された場合
   # 最低3文字のバリデーションを設定
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
