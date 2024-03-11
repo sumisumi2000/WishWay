@@ -13,7 +13,9 @@
             ユーザーネーム
           </summary>
           <ul class="p-2 bg-base-100 rounded-t-none">
-            <li><a>マイリスト</a></li>
+            <li>
+              <%= link_to 'マイリスト', wish_list_path(current_user) %>
+            </li>
             <li><a>アカウント設定</a></li>
             <li>
               <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
