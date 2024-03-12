@@ -7,8 +7,8 @@ class WishesController < ApplicationController
     # ログインユーザーの WishList に Wish を作成
     wish = current_user.wish_list.wishes.build(wish_params)
     if wish.save
-      # トップページに遷移
-      redirect_to wish_list_path, notice: 'Wish を作成しました'
+      # マイリストページに遷移
+      redirect_to wish_list_path(current_user.id), notice: 'Wish を作成しました'
     else
       flash.now[:alert] = "Wish が作成できませんでした"
       # 新規登録ページを再表示

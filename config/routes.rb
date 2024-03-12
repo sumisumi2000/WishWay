@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login' => "user_sessions#create"
   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # WishList
-  resource :wish_list, only: %i[show]
+  resources :wish_lists, only: %i[show index]
   # Wihs
   resources :wishes, only: %i[new create]
 

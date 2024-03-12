@@ -6,7 +6,7 @@
   </div>
   <div class="flex-none">
     <ul class="font-kiwimaru menu menu-horizontal px-1">
-      <li><a>一覧ページ</a></li>
+      <li><%= link_to '一覧ページ', wish_lists_path %></li>
       <li>
         <details>
           <summary>
@@ -14,7 +14,7 @@
           </summary>
           <ul class="p-2 bg-base-100 rounded-t-none z-10">
             <li>
-              <%= link_to 'マイリスト', wish_list_path %>
+              <%= link_to 'マイリスト', wish_list_path(current_user.id) %>
             </li>
             <li><a>アカウント設定</a></li>
             <li>
