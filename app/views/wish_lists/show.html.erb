@@ -1,5 +1,5 @@
 <h1>
-  <%= current_user.wish_list.title %>
+  <%= @user.wish_list.title %>
 </h1>
 
 <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>

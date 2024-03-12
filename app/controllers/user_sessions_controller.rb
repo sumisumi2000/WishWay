@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(wish_list_path, notice: 'ログインに成功しました')
+      redirect_back_or_to(wish_list_path(@user.id), notice: 'ログインに成功しました')
     else
       flash.now[:alert] = 'ログインに失敗しました'
       render :new, status: :unprocessable_entity

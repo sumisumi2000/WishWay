@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       # ログイン状態に移行
       auto_login(@user)
       # マイリストページに遷移
-      redirect_to wish_list_path, notice: 'ユーザー作成に成功しました'
+      redirect_to wish_list_path(@user.id), notice: 'ユーザー作成に成功しました'
     else
       flash.now[:alert] = "ユーザー作成に失敗しました"
       # 新規登録ページを再表示
