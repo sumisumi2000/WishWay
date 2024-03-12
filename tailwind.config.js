@@ -8,6 +8,11 @@ module.exports = {
   theme: {
     fontFamily: {
       kiwimaru: ['Kiwi Maru']
+    },
+    extend: {
+      colors: {
+        'login': '#EADFB4'
+      }
     }
   },
   plugins: [require("daisyui")],

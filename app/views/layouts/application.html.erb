@@ -22,13 +22,13 @@
   </head>
 
   <body>
-    <!-- ヘッダーの表示 -->
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
-    <div class="w-5/6 mx-auto max-w-screen-xl">
+    <div class="font-kiwimaru">
+      <!-- ヘッダーの表示 -->
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
       <!-- フラッシュメッセージの表示 -->
       <%= render "shared/flash" %>
       <%= yield %>
