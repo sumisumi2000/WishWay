@@ -1,3 +1,5 @@
-<div class="bg-base-300 rounded-box py-5 text-center my-3">
-  <%= wish.title %>
-</div>
+<%= link_to edit_wish_path(wish) do %>
+  <div class="bg-base-300 rounded-box py-5 text-center my-3">
+    <%= wish.title %>
+  </div>
+<% end %>

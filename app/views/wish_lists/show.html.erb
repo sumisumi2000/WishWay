@@ -1,13 +1,15 @@
-<h1>
-  <%= @user.wish_list.title %>
-</h1>
+<div class="w-5/6 mx-auto max-w-screen-xl">
+  <h1 class="mt-5 mb-10">
+    <%= @user.wish_list.title %>
+  </h1>
 
-<!-- Wish 一覧を表示 -->
-<%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
+  <!-- Wish 一覧を表示 -->
+  <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
 
-<!-- ログインユーザーのリストにのみ新規作成ボタンを表示 -->
-<% if logged_in? && current_user.my_list?(@user.wish_list) %>
-  <button class="btn btn-secondary">
-    <%= link_to '新規作成', new_wish_path %>
-  </button>
-<% end %>
+  <!-- ログインユーザーのリストにのみ新規作成ボタンを表示 -->
+  <% if logged_in? && current_user.my_list?(@user.wish_list) %>
+    <button class="btn btn-secondary">
+      <%= link_to '新規作成', new_wish_path %>
+    </button>
+  <% end %>
+</div>

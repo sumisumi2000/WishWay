@@ -16,6 +16,10 @@ class WishesController < ApplicationController
     end
   end
 
+  def edit
+    @wish = current_user.wish_list.wishes.find(params[:id])
+  end
+
   private
 
   def wish_params
