@@ -50,6 +50,17 @@ class WishesController < ApplicationController
     redirect_to wish_list_path(wish.wish_list.user), notice: 'Wish を削除しました', status: :see_other
   end
 
+  def check
+    # チェックされたWish をログインユーザーから取得
+    wish = current_user.wish_list.wishes.find(params[:id])
+    # 達成状況を入れ替え(true なら false、 false なら true)
+    wish.granted = !wish.granted
+    # データベースに保存
+    wish.save!
+    # リストページにリダイレクト
+    redirect_to wish_list_path(wish.wish_list.user)
+  end
+
   private
 
   def wish_params
