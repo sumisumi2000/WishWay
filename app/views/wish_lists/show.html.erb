@@ -3,7 +3,10 @@
     <%= @user.wish_list.title %>
   </h1>
 
-  <%= render 'toggle', wish_list: @user.wish_list %>
+  <!-- ログインユーザーのリストにのみ新規作成ボタンを表示 -->
+  <% if logged_in? && current_user.my_list?(@user.wish_list) %>
+    <%= render 'toggle', wish_list: @user.wish_list %>
+  <% end %>
 
   <!-- Wish 一覧を表示 -->
   <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
