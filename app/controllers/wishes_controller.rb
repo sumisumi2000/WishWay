@@ -32,13 +32,22 @@ class WishesController < ApplicationController
     @wish = current_user.wish_list.wishes.find(params[:id])
 
     if @wish.update(wish_params)
-      redirect_to(wish_list_path(@wish.wish_list.user), notice: 'Wish を更新しました')
+      redirect_to wish_list_path(@wish.wish_list.user), notice: 'Wish を更新しました'
     else
       # 変更前の値に戻す
       @wish.update(@wish.attributes_in_database)
       flash.now[:alert] = 'Wish の更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    # 更新する Wish をログインユーザーから取得
+    wish = current_user.wish_list.wishes.find(params[:id])
+    # 削除
+    wish.destroy!
+    # 削除後、掲示板一覧ページにリダイレクト
+    redirect_to wish_list_path(wish.wish_list.user), notice: 'Wish を削除しました', status: :see_other
   end
 
   private
