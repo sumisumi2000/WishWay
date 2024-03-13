@@ -7,18 +7,24 @@ class WishListsController < ApplicationController
 
   def show
     begin
-      @user = User.find(params[:id])
+      # params からリスト所持者のユーザーを取得し、リストを取得
+      @wish_list = User.find(params[:id]).wish_list
       # リストが非公開の場合、一覧ページにリダイレクト
-      unless @user.wish_list.is_public
+      if !@wish_list.is_public && !current_user.my_list?(@wish_list)
         redirect_to wish_lists_path, notice: 'このリストは非公開です'
         return
       end
-    # 存在しないリストにアクセスした際に、一覧ページへリダイレクトする
+    # ログインしていない状態で、非公開のリストにアクセスした時に、一覧ページへリダイレクト
+    rescue NoMethodError
+    redirect_to wish_lists_path, notice: 'このリストは非公開です'
+    return
+    # 存在しないリストにアクセスした際に、一覧ページへリダイレクト
     rescue ActiveRecord::RecordNotFound
       redirect_to wish_lists_path, notice: 'このリストは見つかりませんでした'
       return
     end
-    @wishes = @user.wish_list.wishes
+    # リストの Wish を取得
+    @wishes = @wish_list.wishes
   end
 
   def lock
