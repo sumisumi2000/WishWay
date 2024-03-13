@@ -1,21 +1,18 @@
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <div class="my-10 py-10">
-    <h1 class="text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-test text-center">
+    <h1 class="text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-dot text-center">
       ログイン
     </h1>
-    <div class="">
-      <%= form_with url: login_path, method: :post do |form| %>
-        <!-- メールアドレス入力欄 -->
-        <%= form.label :email, class: "label mb-3 w-1/2 mx-auto" %>
-        <%= form.text_field :email, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
-
-        <!-- パスワード入力欄 -->
-        <%= form.label :password, class: "label mb-3 w-1/2 mx-auto" %>
-        <%= form.password_field :password, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
-        <div class="w-1/2 mx-auto flex justify-center text-center">
-          <%= form.submit 'ログイン', class: "btn mt-1" %>
-        </div>
-      <% end %>
-    </div>
+    <%= form_with url: login_path, method: :post do |form| %>
+      <!-- メールアドレス入力欄 -->
+      <%= form.label :email, 'メールアドレス', class: "label mb-3 w-1/2 mx-auto" %>
+      <%= form.text_field :email, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
+      <!-- パスワード入力欄 -->
+      <%= form.label :password, 'パスワード', class: "label mb-3 w-1/2 mx-auto" %>
+      <%= form.password_field :password, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
+      <div class="w-1/2 mx-auto flex justify-center text-center">
+        <%= form.submit 'ログイン', class: "btn mt-1" %>
+      </div>
+    <% end %>
   </div>
 </div>
