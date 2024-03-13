@@ -7,10 +7,10 @@
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
       <li><%= link_to '一覧ページ', wish_lists_path %></li>
-      <li>
+      <li class="w-40">
         <details>
-          <summary>
-            ユーザーネーム
+          <summary class="mx-auto">
+            <%= current_user.name %>
           </summary>
           <ul class="p-2 bg-base-100 rounded-t-none z-10">
             <li>
