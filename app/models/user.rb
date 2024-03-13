@@ -23,4 +23,8 @@ class User < ApplicationRecord
   def my_list?(wish_list)
     wish_list.user_id == self.id
   end
+
+  def my_wish?(wish)
+    wish.wish_list.user.id == self.id
+  end
 end

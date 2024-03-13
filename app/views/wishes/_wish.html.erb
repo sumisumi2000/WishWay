@@ -1,5 +1,13 @@
-<%= link_to edit_wish_path(wish) do %>
-  <div class="bg-base-300 rounded-box py-5 text-center my-3">
-    <%= wish.title %>
-  </div>
+<!-- 自分が作成した Wish なら編集ページへのリンク -->
+<% if current_user.my_wish?(wish) %>
+  <%= link_to edit_wish_path(wish) do %>
+    <div class="bg-base-300 rounded-box py-5 text-center my-3">
+      <%= wish.title %>
+    </div>
+  <% end %>
+<!-- 他のユーザーが作成した Wish なら表示のみ -->
+<% else %>
+    <div class="bg-base-300 rounded-box py-5 text-center my-3">
+      <%= wish.title %>
+    </div>
 <% end %>
