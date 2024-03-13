@@ -11,7 +11,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        'login': '#EADFB4'
+        'login': '#EADFB4',
+        'test': '#F9DBBB',
+        'dot': '#D8D9CF'
       }
     }
   },
