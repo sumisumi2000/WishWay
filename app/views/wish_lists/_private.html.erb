@@ -1,0 +1,7 @@
+<div class="flex items-center">
+    <label class="text-base text-gray-500 dark:text-gray-400 mr-3 h-[29px]">非公開</label>
+    <%= link_to lock_list_path, data: { turbo_method: :post } do %>
+      <input type="checkbox" class="toggle" />
+    <% end %>
+    <label class=" text-gray-500 dark:text-gray-400 ml-3 h-[29px]">公開</label>
+  </div>
