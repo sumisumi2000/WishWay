@@ -1,19 +1,28 @@
-<%= form_with model: @user do |form| %>
-  <!-- ユーザーネーム入力欄 -->
-  <%= form.label :name, class: "label" %>
-  <%= form.text_field :name, class: "input input-bordered w-full max-w-xs form-control" %>
+<div class="w-5/6 mx-auto max-w-screen-xl">
+  <div class="my-10 py-10">
+    <h1 class="text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-dot text-center">
+      新規登録
+    </h1>
+    <%= form_with model: @user do |form| %>
+      <!-- ユーザーネーム入力欄 -->
+      <%= form.label :name, 'ユーザーネーム', class: "label mb-2 w-1/2 mx-auto" %>
+      <%= form.text_field :name, class: "input input-bordered form-control mb-5 w-1/2 mx-auto" %>
 
-  <!-- メールアドレス入力欄 -->
-  <%= form.label :email, class: "label" %>
-  <%= form.text_field :email, class: "input input-bordered w-full max-w-xs form-control" %>
+      <!-- メールアドレス入力欄 -->
+      <%= form.label :email, 'メールアドレス', class: "label mb-2 w-1/2 mx-auto" %>
+      <%= form.text_field :email, class: "input input-bordered form-control mb-5 w-1/2 mx-auto" %>
 
-  <!-- パスワード入力欄 -->
-  <%= form.label :password, class: "label" %>
-  <%= form.password_field :password, class: "input input-bordered w-full max-w-xs form-control" %>
+      <!-- パスワード入力欄 -->
+      <%= form.label :password, 'パスワード', class: "label mb-2 w-1/2 mx-auto" %>
+      <%= form.password_field :password, class: "input input-bordered form-control mb-5 w-1/2 mx-auto" %>
 
-  <!-- パスワード確認入力欄 -->
-  <%= form.label :password_confirmation, class: "label" %>
-  <%= form.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs form-control" %>
+      <!-- パスワード確認入力欄 -->
+      <%= form.label :password_confirmation, 'パスワード再入力', class: "label mb-2 w-1/2 mx-auto" %>
+      <%= form.password_field :password_confirmation, class: "input input-bordered form-control mb-5 w-1/2 mx-auto" %>
 
-  <%= form.submit class: "btn mt-1" %>
-<% end %>
+      <div class="w-1/2 mx-auto flex justify-center text-center">
+        <%= form.submit '新規登録', class: "btn mt-1" %>
+      </div>
+    <% end %>
+  </div>
+</div>

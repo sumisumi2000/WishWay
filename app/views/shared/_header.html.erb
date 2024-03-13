@@ -1,4 +1,4 @@
-<div class="navbar bg-base-200 mb-1">
+<div class="navbar bg-base-200 mb-5">
   <div class="flex-1">
     <div class="btn btn-ghost text-xl">
       <%= link_to 'WishWay', root_path %>
@@ -6,22 +6,14 @@
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li><%= link_to '一覧ページ', wish_lists_path %></li>
-      <li class="w-40">
-        <details>
-          <summary class="mx-auto">
-            <%= current_user.name %>
-          </summary>
-          <ul class="p-2 bg-base-100 rounded-t-none z-10">
-            <li>
-              <%= link_to 'マイリスト', wish_list_path(current_user.id) %>
-            </li>
-            <li><a>アカウント設定</a></li>
-            <li>
-              <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
-            </li>
-          </ul>
-        </details>
+      <li>
+        <%= link_to '一覧ページ', wish_lists_path %>
+      </li>
+      <li>
+        <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
       </li>
     </ul>
   </div>
