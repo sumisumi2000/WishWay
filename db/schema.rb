@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_074747) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_13_091936) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_074747) do
     t.integer "wish_list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "granted", default: false, null: false
     t.index ["wish_list_id"], name: "index_wishes_on_wish_list_id"
   end
 

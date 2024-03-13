@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # WishList
   resources :wish_lists, only: %i[show index]
-  # Wihs
+  # Wish
   resources :wishes, only: %i[new create edit update destroy]
+  post 'check/:id' => 'wishes#check', :as => :check_wish
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
