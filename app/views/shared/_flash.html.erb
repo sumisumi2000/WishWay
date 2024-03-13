@@ -1,5 +1,7 @@
-<% flash.each do |message_type, message| %>
-  <div class="alert">
-    <%= message %>
-  </div>
-<% end %>
+<div class="w-5/6 mx-auto max-w-screen-xl">
+  <% flash.each do |message_type, message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
