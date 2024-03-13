@@ -3,6 +3,8 @@
     <%= @user.wish_list.title %>
   </h1>
 
+  <%= render 'toggle', wish_list: @user.wish_list %>
+
   <!-- Wish 一覧を表示 -->
   <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
 
