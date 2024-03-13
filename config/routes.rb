@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # WishList
   resources :wish_lists, only: %i[show index]
   # Wihs
-  resources :wishes, only: %i[new create]
+  resources :wishes, only: %i[new create edit update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
