@@ -2,7 +2,7 @@
 <% if logged_in? %>
   <!-- 自分が作成した Wish -->
   <% if current_user.my_wish?(wish) %>
-    <div class="bg-base-300 rounded-box py-5 my-3 flex items-center">
+    <div class="bg-base-200 py-5 flex items-center">
       <!-- タイトル & チェックボックス判定 -->
       <%= link_to check_wish_path(wish), data: { turbo_method: :post } do %>
         <div class="form-control mx-3">
