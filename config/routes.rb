@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', :as => :logout
   # WishList
   resources :wish_lists, only: %i[show index]
-  post 'lock' => 'wish_lists#lock', :as => :lock_list
+  post 'lock' => 'wish_lists#lock'
+  post 'unlock' => 'wish_lists#unlock'
   # Wish
   resources :wishes, only: %i[new create edit update destroy]
   post 'check/:id' => 'wishes#check', :as => :check_wish
