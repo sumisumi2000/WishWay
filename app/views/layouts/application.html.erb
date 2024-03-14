@@ -24,16 +24,20 @@
   </head>
 
   <body>
-    <div class="font-kiwimaru">
+    <div class="font-kiwimaru flex flex-col min-h-screen">
       <!-- ヘッダーの表示 -->
       <% if logged_in? %>
         <%= render 'shared/header' %>
       <% else %>
         <%= render 'shared/before_login_header' %>
       <% end %>
+      <div class="my-5">
       <!-- フラッシュメッセージの表示 -->
       <%= render "shared/flash" %>
       <%= yield %>
+      </div>
+      <!-- フッター -->
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>
