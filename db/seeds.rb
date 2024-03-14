@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+100.times do |n|
+  User.create!(
+    name: "seedテスト#{n + 1}",
+    email: "seed#{n + 1}@test.com",
+    password: "test",
+    password_confirmation: "test"
+    )
+end
+
+User.all.each do |user|
+  user.create_wish_list!(title: "#{user.name}のバケットリスト")
+end
