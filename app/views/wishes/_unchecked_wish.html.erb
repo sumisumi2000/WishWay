@@ -2,7 +2,7 @@
 <% if logged_in? %>
   <!-- 自分が作成した Wish -->
   <% if current_user.my_wish?(wish) %>
-    <div class="bg-base-300 rounded-box py-5 my-3 flex items-center">
+    <div class="bg-base-200 py-5 flex items-center rounded-box">
       <!-- タイトル & チェックボックス判定 -->
       <%= render 'wishes/unchecked_wish_title', wish: wish %>
       <!-- 編集アイコン -->
