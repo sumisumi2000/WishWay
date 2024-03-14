@@ -52,13 +52,20 @@ class WishesController < ApplicationController
 
   def check
     # チェックされたWish をログインユーザーから取得
-    wish = current_user.wish_list.wishes.find(params[:id])
-    # 達成状況を入れ替え(true なら false、 false なら true)
-    wish.granted = !wish.granted
+    @wish = current_user.wish_list.wishes.find(params[:id])
+    # チェックする
+    @wish.granted = true
     # データベースに保存
-    wish.save!
-    # リストページにリダイレクト
-    redirect_to wish_list_path(wish.wish_list.user)
+    @wish.save!
+  end
+
+  def uncheck
+    # チェックされたWish をログインユーザーから取得
+    @wish = current_user.wish_list.wishes.find(params[:id])
+    # チェックを外す
+    @wish.granted = false
+    # データベースに保存
+    @wish.save!
   end
 
   private

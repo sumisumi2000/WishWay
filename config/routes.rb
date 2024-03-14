@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   post 'unlock' => 'wish_lists#unlock'
   # Wish
   resources :wishes, only: %i[new create edit update destroy]
-  post 'check/:id' => 'wishes#check', :as => :check_wish
+  post 'check/:id' => 'wishes#check', :as => :check
+  post 'uncheck/:id' => 'wishes#uncheck', :as => :uncheck
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
