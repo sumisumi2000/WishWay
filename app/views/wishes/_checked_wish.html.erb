@@ -4,16 +4,7 @@
   <% if current_user.my_wish?(wish) %>
     <div class="bg-base-300 rounded-box py-5 my-3 flex items-center">
       <!-- タイトル & チェックボックス判定 -->
-      <%= link_to check_wish_path(wish), data: { turbo_method: :post } do %>
-        <div class="form-control mx-3">
-          <label class="label cursor-pointer">
-            <input type="checkbox" checked="checked" class="checkbox checkbox-accent mr-3" />
-            <span class="label-text text-xl text-zinc-400 line-through">
-              <%= wish.title %>
-            </span>
-          </label>
-        </div>
-      <% end %>
+      <%= render 'wishes/checked_wish_title', wish: wish %>
       <!-- 編集アイコン -->
       <%= link_to edit_wish_path(wish) do %>
         <i class="fa-solid fa-pen-to-square text-2xl mx-1"></i>
