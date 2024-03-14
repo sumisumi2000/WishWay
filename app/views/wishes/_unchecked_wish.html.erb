@@ -1,7 +1,9 @@
+<!-- ログインユーザーかどうか -->
 <% if logged_in? %>
-  <!-- 自分が作成した Wish なら編集ページへのリンク -->
+  <!-- 自分が作成した Wish -->
   <% if current_user.my_wish?(wish) %>
     <div class="bg-base-300 rounded-box py-5 my-3 flex items-center">
+      <!-- タイトル & チェックボックス判定 -->
       <%= link_to check_wish_path(wish), data: { turbo_method: :post } do %>
         <div class="form-control mx-3">
           <label class="label cursor-pointer">
@@ -12,17 +14,20 @@
           </label>
         </div>
       <% end %>
+      <!-- 編集アイコン -->
       <%= link_to edit_wish_path(wish) do %>
         <i class="fa-solid fa-pen-to-square text-2xl mx-1"></i>
       <% end %>
+      <!-- 削除アイコン -->
       <%= link_to wish_path(wish), data: { turbo_method: :delete, turbo_confirm: 'この Wish を削除しますか？' } do %>
         <i class="fa-solid fa-eraser text-2xl mx-1"></i>
       <% end %>
     </div>
+  <!-- 他ユーザーが作成した Wish -->
   <% else %>
     <%= render 'wishes/unchecked_disable_wish', wish: wish %>
   <% end %>
-<!-- 他のユーザーが作成した Wish なら表示のみ -->
+<!-- 未ログインユーザー用の Wish -->
 <% else %>
   <%= render 'wishes/unchecked_disable_wish', wish: wish %>
 <% end %>

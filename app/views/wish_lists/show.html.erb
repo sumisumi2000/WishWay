@@ -1,12 +1,15 @@
 <div class="w-5/6 mx-auto max-w-screen-xl">
-  <h1 class="mt-5 mb-10">
-    <%= @wish_list.title %>
-  </h1>
+  <div class="flex justify-between items-center">
+    <!-- タイトル -->
+    <h1 class="mt-5 mb-10">
+      <%= @wish_list.title %>
+    </h1>
 
-  <!-- ログインユーザーのリストにのみ新規作成ボタンを表示 -->
-  <% if logged_in? && current_user.my_list?(@wish_list) %>
-    <%= render 'toggle', wish_list: @wish_list %>
-  <% end %>
+    <!-- ログインユーザーのリストにのみ公開設定トグルボタンを表示 -->
+    <% if logged_in? && current_user.my_list?(@wish_list) %>
+      <%= render 'toggle', wish_list: @wish_list %>
+    <% end %>
+  </div>
 
   <!-- Wish 一覧を表示 -->
   <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
