@@ -1,5 +1,7 @@
-<div class="card bg-base-100 shadow-xl mb-3">
-  <div class="card-body">
-    <h2 class="card-title"><%= link_to "#{wish_list.title}", wish_list_path(wish_list.user.id) %></h2>
+<%= link_to wish_list_path(wish_list.user.id) do %>
+  <div class="card bg-base-100 shadow-xl mb-3 h-full">
+    <div class="card-body">
+      <h2 class="card-title"><%= wish_list.title %></h2>
+    </div>
   </div>
-</div>
+<% end %>
