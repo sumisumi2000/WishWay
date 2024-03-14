@@ -30,13 +30,20 @@ class WishListsController < ApplicationController
   end
 
   def lock
-    # ロックするリストをログインユーザーから取得
+    # ログインユーザーの WishList を取得
     wish_list = current_user.wish_list
-    # 公開を入れ替え(true なら false、 false なら true)
-    wish_list.is_public = !wish_list.is_public
+    # 公開に設定
+    wish_list.is_public = false
     # データベースに保存
     wish_list.save!
-    # リストページにリダイレクト
-    redirect_to wish_list_path(wish_list.user)
+  end
+
+  def unlock
+    # ログインユーザーの WishList を取得
+    wish_list = current_user.wish_list
+    # 公開に設定
+    wish_list.is_public = true
+    # データベースに保存
+    wish_list.save!
   end
 end
