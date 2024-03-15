@@ -36,6 +36,8 @@ class WishesController < ApplicationController
       @wish.update(@wish.attributes_in_database)
     end
 
+    # ログインユーザーの全ての Wish を取得
+    @wishes = current_user.wish_list.wishes
     # if @wish.update(wish_params)
     #   redirect_to wish_list_path(@wish.wish_list.user), notice: 'Wish を更新しました'
     # else

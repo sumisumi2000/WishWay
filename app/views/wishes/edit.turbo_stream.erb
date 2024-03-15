@@ -1,2 +1,4 @@
+<%# 編集アイコンと削除アイコンを全て取り除く%>
+<%= turbo_stream.remove_all '.icons' %>
+<%# 編集ビューに切り替え %>
 <%= turbo_stream.replace "wish-#{@wish.id}", partial: "edit", locals: { wish: @wish } %>
-<%= turbo_stream.remove "icons-#{@wish.id}" %>
