@@ -1,2 +1,2 @@
 <%= turbo_stream.replace "wish-#{@wish.id}", partial: "edit", locals: { wish: @wish } %>
-<%= turbo_stream.remove_all '.icons' %>
+<%= turbo_stream.remove "icons-#{@wish.id}" %>

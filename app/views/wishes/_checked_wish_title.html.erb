@@ -1,4 +1,4 @@
-<%= link_to uncheck_path(wish), id: "wish-#{wish.id}", data: { turbo_stream: true, turbo_method: :post } do %>
+<%= link_to uncheck_path(wish), class: 'wish', id: "wish-#{wish.id}", data: { turbo_stream: true, turbo_method: :post } do %>
   <div class="form-control mx-3">
     <label class="label cursor-pointer">
       <input type="checkbox" checked="checked" class="checkbox checkbox-accent mr-3" />
