@@ -1,0 +1,10 @@
+<div class="icons">
+  <!-- 編集アイコン -->
+  <%= link_to edit_wish_path(wish), data: { turbo_stream: true } do %>
+    <i class="fa-solid fa-pen-to-square text-2xl mx-1"></i>
+  <% end %>
+  <!-- 削除アイコン -->
+  <%= link_to wish_path(wish), data: { turbo_method: :delete, turbo_confirm: 'この Wish を削除しますか？' } do %>
+    <i class="fa-solid fa-eraser text-2xl mx-1"></i>
+  <% end %>
+</div>

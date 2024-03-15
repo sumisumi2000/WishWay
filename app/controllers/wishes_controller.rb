@@ -31,14 +31,21 @@ class WishesController < ApplicationController
     # 更新する Wish をログインユーザーから取得
     @wish = current_user.wish_list.wishes.find(params[:id])
 
-    if @wish.update(wish_params)
-      redirect_to wish_list_path(@wish.wish_list.user), notice: 'Wish を更新しました'
-    else
-      # 変更前の値に戻す
+    # 更新に失敗した場合は、前の値を渡す
+    if !@wish.update(wish_params)
       @wish.update(@wish.attributes_in_database)
-      flash.now[:alert] = 'Wish の更新に失敗しました'
-      render :edit, status: :unprocessable_entity
     end
+
+    # ログインユーザーの全ての Wish を取得
+    @wishes = current_user.wish_list.wishes
+    # if @wish.update(wish_params)
+    #   redirect_to wish_list_path(@wish.wish_list.user), notice: 'Wish を更新しました'
+    # else
+    #   # 変更前の値に戻す
+    #   @wish.update(@wish.attributes_in_database)
+    #   flash.now[:alert] = 'Wish の更新に失敗しました'
+    #   render :edit, status: :unprocessable_entity
+    # end
   end
 
   def destroy
