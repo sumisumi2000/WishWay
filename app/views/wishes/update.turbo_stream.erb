@@ -1,0 +1,5 @@
+<% if @wish.granted %>
+  <%= turbo_stream.replace "wish-frame-#{@wish.id}", partial: "checked_wish", locals: { wish: @wish } %>
+<% else %>
+  <%= turbo_stream.replace "wish-frame-#{@wish.id}", partial: "unchecked_wish", locals: { wish: @wish } %>
+<% end %>
