@@ -1,10 +1,10 @@
 <%# 全ての Wish に編集アイコンと削除アイコンを追加 %>
 <% @wishes.each do |wish| %>
-  <%= turbo_stream.after "wish-#{wish.id}", partial: "icons", locals: { wish: wish } %>
+  <%= turbo_stream.after "wish_#{wish.id}", partial: "icons", locals: { wish: wish } %>
 <% end %>
 <%# 達成状況に応じて、表示する形式を切り替え %>
 <% if @wish.granted %>
-  <%= turbo_stream.replace "wish-frame-#{@wish.id}", partial: "checked_wish", locals: { wish: @wish } %>
+  <%= turbo_stream.replace "wish_frame_#{@wish.id}", partial: "checked_wish", locals: { wish: @wish } %>
 <% else %>
-  <%= turbo_stream.replace "wish-frame-#{@wish.id}", partial: "unchecked_wish", locals: { wish: @wish } %>
+  <%= turbo_stream.replace "wish_frame_#{@wish.id}", partial: "unchecked_wish", locals: { wish: @wish } %>
 <% end %>

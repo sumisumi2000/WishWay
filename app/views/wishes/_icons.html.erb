@@ -3,8 +3,23 @@
   <%= link_to edit_wish_path(wish), data: { turbo_stream: true } do %>
     <i class="fa-solid fa-pen-to-square text-2xl mx-1"></i>
   <% end %>
+
   <!-- 削除アイコン -->
-  <%= link_to wish_path(wish), data: { turbo_stream: true, turbo_method: :delete, turbo_confirm: "Wish「#{wish.title}」 を削除しますか？" } do %>
-    <i class="fa-solid fa-eraser text-2xl mx-1"></i>
-  <% end %>
+  <i class="fa-solid fa-eraser text-2xl mx-1 cursor-pointer" onclick= <%= "my_modal_#{wish.id}.showModal()" %>></i>
+  <%# モーダル部分 %>
+  <dialog id= <%= "my_modal_#{wish.id}" %> class="modal">
+  <div class="modal-box">
+    <p class="py-4 text-xl"><%= "「#{wish.title}」を削除しますか？"%></p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-outline">キャンセル</button>
+      </form>
+      <%# 削除へのリンク %>
+      <%= link_to wish_path(wish), data: { turbo_stream: true, turbo_method: :delete } do %>
+        <button class="btn btn-outline btn-error">削除</button>
+      <% end %>
+    </div>
+  </div>
+</dialog>
 </div>
