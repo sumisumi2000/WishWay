@@ -17,7 +17,7 @@
   <% end %>
 
   <!-- Wish 一覧を表示 -->
-  <div class="divide-y-2 divide-base-100 divide-dashed">
+  <div class="divide-y-2 divide-base-100 divide-dashed" id='wishes'>
     <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
   </div>
 </div>

@@ -1,15 +1,18 @@
 class WishesController < ApplicationController
   def create
     # ログインユーザーの WishList に Wish を作成
-    wish = current_user.wish_list.wishes.build(wish_params)
-    if wish.save
-      # マイリストページに遷移
-      redirect_to wish_list_path(current_user.id), notice: 'Wish を作成しました'
-    else
-      flash.now[:alert] = "Wish が作成できませんでした"
-      # 新規登録ページを再表示
-      render :new, status: :unprocessable_entity
-    end
+    @wish = current_user.wish_list.wishes.build(wish_params)
+
+    @wish.save
+
+    # if wish.save
+    #   # マイリストページに遷移
+    #   redirect_to wish_list_path(current_user.id), notice: 'Wish を作成しました'
+    # else
+    #   flash.now[:alert] = "Wish が作成できませんでした"
+    #   # 新規登録ページを再表示
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def edit

@@ -30,5 +30,8 @@ module WishWay
       g.test_framework false     # test ファイルを作成しない
       g.skip_routes true         # ルーティングの記述を作成しない
     end
+
+    # field_with_errors クラスを挿入されないようにする
+    # config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end
