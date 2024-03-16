@@ -6,5 +6,3 @@
   <%= turbo_stream.replace 'new', partial: 'new', locals: { wish: Wish.new } %>
   <%= turbo_stream.append 'wishes', partial: 'unchecked_wish', locals: { wish: @wish } %>
 <% end %>
-
-<%= turbo_stream.remove 'toggle' %>
