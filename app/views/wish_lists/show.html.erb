@@ -11,14 +11,13 @@
     <% end %>
   </div>
 
+  <!-- ログインユーザーのリストにのみ新規作成欄を表示 -->
+  <% if logged_in? && current_user.my_list?(@wish_list) %>
+    <%= render 'wishes/new', wish: @wish %>
+  <% end %>
+
   <!-- Wish 一覧を表示 -->
   <div class="divide-y-2 divide-base-100 divide-dashed">
     <%= render(partial: 'wishes/wish', collection: @wishes) || "Wish がありません" %>
   </div>
-  <!-- ログインユーザーのリストにのみ新規作成ボタンを表示 -->
-  <% if logged_in? && current_user.my_list?(@wish_list) %>
-    <button class="btn btn-secondary mt-3">
-      <%= link_to '新規作成', new_wish_path %>
-    </button>
-  <% end %>
 </div>

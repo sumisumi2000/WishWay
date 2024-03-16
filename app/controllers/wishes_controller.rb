@@ -1,8 +1,4 @@
 class WishesController < ApplicationController
-  def new
-    @wish = Wish.new
-  end
-
   def create
     # ログインユーザーの WishList に Wish を作成
     wish = current_user.wish_list.wishes.build(wish_params)
