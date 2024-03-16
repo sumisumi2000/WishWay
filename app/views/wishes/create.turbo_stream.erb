@@ -1,0 +1,10 @@
+<%# 作成失敗などのエラーがあるときは、新規作成欄のみを置き換え %>
+<% if @wish.errors.present? %>
+  <%= turbo_stream.replace 'new', partial: 'new', locals: { wish: @wish } %>
+<%# 作成に成功すると、新しい新規作成欄を用意し、末尾に作成した Wish を追加 %>
+<% else %>
+  <%= turbo_stream.replace 'new', partial: 'new', locals: { wish: Wish.new } %>
+  <%= turbo_stream.append 'wishes', partial: 'unchecked_wish', locals: { wish: @wish } %>
+<% end %>
+
+<%= turbo_stream.remove 'toggle' %>

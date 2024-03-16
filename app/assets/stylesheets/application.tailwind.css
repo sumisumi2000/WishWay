@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* なんでこれでいけるんかはわからんけど、いったんできたから置いとく */
+@layer components {
+  /* 「field_with_errors.」にCSSをあてる */
+  .field_with_errors {
+    @apply contents;
+  }
+}

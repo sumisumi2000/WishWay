@@ -7,8 +7,12 @@ class WishListsController < ApplicationController
 
   def show
     begin
+      # 新規作成用の Wish を作成
+      @wish = Wish.new
+
       # params からリスト所持者のユーザーを取得し、リストを取得
       @wish_list = User.find(params[:id]).wish_list
+
       if !@wish_list.is_public
         # リストが非公開であっても、自分のリストであれば表示
         if current_user.my_list?(@wish_list)
