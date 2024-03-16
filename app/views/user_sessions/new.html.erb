@@ -6,7 +6,7 @@
     <%= form_with url: login_path, method: :post do |form| %>
       <!-- メールアドレス入力欄 -->
       <%= form.label :email, 'メールアドレス', class: "label mb-3 w-1/2 mx-auto" %>
-      <%= form.text_field :email, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
+      <%= form.text_field :email, value: @email, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
       <!-- パスワード入力欄 -->
       <%= form.label :password, 'パスワード', class: "label mb-3 w-1/2 mx-auto" %>
       <%= form.password_field :password, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
