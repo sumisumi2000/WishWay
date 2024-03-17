@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        name: "ユーザーネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード再確認"
+    models:
+      wish: Wish
+    attributes:
+      wish:
+        title: "タイトル"
