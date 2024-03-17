@@ -76,3 +76,6 @@ gem 'cssbundling-rails'
 
 # Sorcery
 gem 'sorcery'
+
+# i18n
+gem 'rails-i18n', '~> 7.0.0'

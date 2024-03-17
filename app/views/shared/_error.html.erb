@@ -1,0 +1,10 @@
+<%# バリデーションエラーメッセージ表示 %>
+<% if object.errors.any? %>
+  <div role="alert" class="alert alert-warning">
+    <ul>
+      <% object.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
