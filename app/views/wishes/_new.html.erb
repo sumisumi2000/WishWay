@@ -3,7 +3,7 @@
   <%= render 'shared/error', object: wish %>
 </div>
 
-<%= form_with model: wish, class: 'flex items-center justify-between mb-5', id: 'new' do |form| %>
-  <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 w-11/12 form-control" %>
+<%= form_with model: wish, class: 'flex items-center mb-5', id: 'new' do |form| %>
+  <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control grow mr-3" %>
   <%= form.submit value: '新規作成', class: "btn btn-accent" %>
 <% end %>
