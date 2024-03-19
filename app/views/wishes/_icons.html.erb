@@ -1,11 +1,11 @@
-<div class="icons">
+<div class="icons ml-3 basis-1/12 flex justify-around">
   <!-- 編集アイコン -->
   <%= link_to edit_wish_path(wish), data: { turbo_stream: true } do %>
-    <i class="fa-solid fa-pen-to-square text-2xl mx-1"></i>
+    <i class="fa-solid fa-pen-to-square text-2xl"></i>
   <% end %>
 
   <!-- 削除アイコン -->
-  <i class="fa-solid fa-eraser text-2xl mx-1 cursor-pointer" onclick= <%= "my_modal_#{wish.id}.showModal()" %>></i>
+  <i class="fa-solid fa-eraser text-2xl cursor-pointer" onclick= <%= "my_modal_#{wish.id}.showModal()" %>></i>
   <%# モーダル部分 %>
   <dialog id= <%= "my_modal_#{wish.id}" %> class="modal">
   <div class="modal-box">

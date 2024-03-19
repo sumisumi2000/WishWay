@@ -11,3 +11,6 @@ ja:
         password_confirmation: "パスワード再確認"
       wish:
         title: "タイトル"
+  time:
+    formats:
+      default: "%Y/%m/%d"
