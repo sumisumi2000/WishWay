@@ -36,5 +36,7 @@ module WishWay
 
     # i18n の設定
     config.i18n.default_locale = :ja
+    # タイムゾーンを日本時間に設定
+    config.time_zone = 'Asia/Tokyo'
   end
 end

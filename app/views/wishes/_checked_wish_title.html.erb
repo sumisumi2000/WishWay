@@ -1,5 +1,5 @@
 <div class="flex justify-between items-center basis-11/12" id= <%= "wish_#{wish.id}" %> >
-  <div class="form-control">
+  <div class="form-control basis-5/6">
     <%= link_to uncheck_path(wish), data: { turbo_stream: true, turbo_method: :post } do %>
       <label class="label cursor-pointer justify-normal">
         <input type="checkbox" checked="checked" class="checkbox checkbox-accent mr-3" />
@@ -10,5 +10,8 @@
     <% end %>
   </div>
   <!-- 作成日 -->
-  <div class="text-zinc-400 line-through ml-3"><%= l wish.created_at %></div>
+  <div class="date">
+    <div class="ml-3">作成日：<%= l wish.created_at %></div>
+    <div class="text-zinc-400 line-through ml-3">達成日：<%= l wish.updated_at %></div>
+  </div>
 </div>
