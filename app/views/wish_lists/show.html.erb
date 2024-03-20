@@ -3,7 +3,7 @@
     <!-- タイトル -->
     <%= @wish_list.title %>
     <%# X シェアリンク %>
-    <%= link_to "Xでシェア", "https://twitter.com/share?url=#{wish_list_url(@wish_list)}&text=#{@wish_list.title}を作成したよ！", :onclick=>"window.open(this.href,'hoge', 'height=480, width=640');return false;", rel: "noopener noreferrer", data: { toggle: "tooltip", placement: "bottom" }%>
+    <%= link_to "Xでシェア", "https://twitter.com/share?url=#{wish_list_url(@wish_list.user)}&text=#{@wish_list.title}を作成したよ！", :onclick=>"window.open(this.href,'hoge', 'height=480, width=640');return false;", rel: "noopener noreferrer", data: { toggle: "tooltip", placement: "bottom" }%>
     <!-- ログインユーザーのリストにのみ公開設定トグルボタンを表示 -->
     <% if logged_in? && current_user.my_list?(@wish_list) %>
       <%= render 'toggle', wish_list: @wish_list %>
