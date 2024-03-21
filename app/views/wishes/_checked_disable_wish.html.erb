@@ -1,10 +1,15 @@
-<div class="bg-base-200 py-5 flex items-center rounded-box">
-  <div class="form-control mx-3">
-    <label class="label">
+<div class="bg-base-200 py-5 flex justify-between items-center rounded-box">
+  <div class="form-control mx-3 basis-5/6">
+    <div class="label justify-start">
       <input type="checkbox" class="checkbox mr-3" disabled checked />
       <span class="label-text text-xl text-zinc-400 line-through">
         <%= wish.title %>
       </span>
-    </label>
+    </div>
+  </div>
+    <!-- 作成日 -->
+  <div class="date">
+    <div class="mr-3">作成日：<%= l wish.created_at %></div>
+    <div class="text-zinc-400 line-through mr-3">達成日：<%= l wish.updated_at %></div>
   </div>
 </div>
