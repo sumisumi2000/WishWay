@@ -5,12 +5,12 @@
     <!-- ログインユーザーのリストにのみ -->
     <% if logged_in? && current_user.my_list?(@wish_list) %>
       <div class="share flex">
-      <%# 公開設定ボタン %>
-      <%= render 'toggle', wish_list: @wish_list %>
       <%# 公開設定の場合のみ%>
       <% if @wish_list.is_public %>
         <%= render 'shared/share_X_button', wish_list: @wish_list %>
       <% end%>
+      <%# 公開設定ボタン %>
+      <%= render 'toggle', wish_list: @wish_list %>
       </div>
     <% end %>
   </div>

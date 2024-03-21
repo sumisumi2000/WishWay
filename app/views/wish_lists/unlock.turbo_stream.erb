@@ -1,2 +1,2 @@
 <%= turbo_stream.replace 'toggle', partial: 'public' %>
-<%= turbo_stream.append 'toggle', partial: 'shared/share_X_button', locals: { wish_list: @wish_list } %>
+<%= turbo_stream.prepend 'toggle', partial: 'shared/share_X_button', locals: { wish_list: @wish_list } %>
