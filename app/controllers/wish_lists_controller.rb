@@ -44,10 +44,10 @@ class WishListsController < ApplicationController
 
   def unlock
     # ログインユーザーの WishList を取得
-    wish_list = current_user.wish_list
+    @wish_list = current_user.wish_list
     # 公開に設定
-    wish_list.is_public = true
+    @wish_list.is_public = true
     # データベースに保存
-    wish_list.save!
+    @wish_list.save!
   end
 end

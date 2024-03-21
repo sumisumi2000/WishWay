@@ -1,7 +1,7 @@
 <div class="flex items-center" id="toggle">
-  <label class="text-base text-gray-500 dark:text-gray-400 mr-3 h-[29px]">非公開</label>
+  <div class="tooltip" data-tip="公開する">
   <%= link_to unlock_path, data: { turbo_stream: true, turbo_method: :post } do %>
-    <input type="checkbox" class="toggle" />
+    <i class="fa-solid fa-lock text-2xl"></i>
   <% end %>
-  <label class=" text-gray-500 dark:text-gray-400 ml-3 h-[29px]">公開</label>
   </div>
+</div>
