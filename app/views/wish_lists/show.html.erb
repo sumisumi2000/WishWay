@@ -9,7 +9,7 @@
       <%= render 'toggle', wish_list: @wish_list %>
       <%# 公開設定の場合のみ%>
       <% if @wish_list.is_public %>
-        <%= render 'shared/share_X_button' %>
+        <%= render 'shared/share_X_button', wish_list: @wish_list %>
       <% end%>
       </div>
     <% end %>
