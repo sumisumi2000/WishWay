@@ -1,22 +1,101 @@
 <div class="w-5/6 mx-auto max-w-screen-xl my-5">
-  <%# トップ画像と説明 %>
+  <%# トップ画像とキャッチコピー %>
   <div class="hero bg-base-200 rounded-lg">
     <div class="hero-content flex-col lg:flex-row">
       <%= image_tag "top.png", class: "max-w-sm" %>
-      <p class="py-6 text-2xl">WishWay は自分の人生の目標や夢を作成し、<br>共有できるアプリです </p>
+      <div class="flex-none text-center">
+        <p class="py-6 text-2xl">自分が本当にしたいこと、できていますか？</p>
+        <p class="py-6 text-lg">WishWay でバケットリストを作成しよう</p>
+        <p class="pt-12">
+          <%= link_to new_user_path do %>
+            <button class="btn btn-primary">バケットリストを作成する</button>
+          <% end %>
+        </p>
+      </div>
     </div>
   </div>
-
+  <%# バケットリストとは %>
+  <div class="collapse collapse-plus bg-base-200 w-5/6 mx-auto my-5">
+    <input type="checkbox" />
+    <div class="collapse-title text-xl font-medium">
+      バケットリストとは？
+    </div>
+    <ul class="collapse-content text-lg list-disc pl-10">
+        <li>バケットリストとは、「死ぬまでにやりたいことリスト」のことです</li>
+        <li>「kick the bucket（日本語で死ぬという意味）」という英語のスラングが言葉の由来となっています。</li>
+    <ul>
+  </div>
   <%# 使い方 %>
   <div class="collapse collapse-plus bg-base-200 w-5/6 mx-auto my-5">
     <input type="checkbox" />
-    <div class="collapse-title text-xl font-medium text-center">
+    <div class="collapse-title text-xl font-medium text-start">
       アプリの使い方
     </div>
-    <div class="collapse-content">
-      <%= image_tag "https://i.gyazo.com/123d21b9c3535049d2e3084aafd8f147.gif", size: 400 %>
+    <div class="collapse-content grid grid-cols-2">
+      <%# 全てのユーザーができること %>
+      <div class="card w-96 bg-base-100 shadow-xl my-5 mx-auto">
+        <div class="card-body">
+          <h2 class="card-title">全てのユーザー</h2>
+          <p>みんなのバケットリストを閲覧できます</p>
+          <div class="card-actions justify-end">
+            <%= link_to wish_lists_path do %>
+              <button class="btn btn-accent mt-2">見にいく</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%# 公開設定 %>
+      <div class="card w-96 bg-base-100 shadow-xl my-5 mx-auto">
+        <div class="card-body">
+          <h2 class="card-title text-accent">ログイン限定</h2>
+          <ul class="list-disc pl-5">
+            <li>Wish の作成と編集</li>
+            <li>Wish の達成</li>
+            <li>マイリストの公開設定</li>
+            <li>X シェア機能</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-
+  <%# 作成のコツ %>
+  <div class="collapse collapse-plus bg-base-200 w-5/6 mx-auto my-5">
+    <input type="checkbox" />
+    <div class="collapse-title text-xl font-medium">
+      Wish 作成のコツ
+    </div>
+    <ul class="collapse-content text-lg list-disc pl-10">
+      <li class="py-3">「できるかどうか」は考えない
+        <ul class="list-[circle] ml-4">
+          <li>お金や時間などの制約は柔らかい思考の妨げとなるので、とっぱらいましょう</li>
+        </ul>
+      </li>
+      <li class="py-3">「ToDoリスト」を目指さない
+        <ul class="list-[circle] ml-4">
+          <li>should（すべき）ではなく、 want（したい）ことを考えてみよう</li>
+        </ul>
+      </li>
+      <li class="py-3">カテゴリーに分けて考えてみよう
+        <ul class="list-[circle] ml-4">
+          <li>欲しいもの</li>
+          <li>行きたい場所</li>
+          <li>挑戦</li>
+          <li>会いたい人</li>
+          <li>学びたいこと etc...</li>
+        </ul>
+      </li>
+    <ul>
+  </div>
   <%# ログイン & 新規登録 & 一覧ページ へのボタン %>
+  <div class="flex justify-around w-5/6 mx-auto">
+    <%= link_to wish_lists_path do %>
+      <button class="btn btn-accent">みんなのリストを見にいく</button>
+    <% end %>
+    <%= link_to login_path do %>
+      <button class="btn btn-secondary">ログインページ</button>
+    <% end %>
+    <%= link_to new_user_path do %>
+      <button class="btn btn-primary">バケットリストを作成する</button>
+    <% end %>
+  </div>
 </div>
