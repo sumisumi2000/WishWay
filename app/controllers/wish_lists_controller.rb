@@ -2,7 +2,7 @@ class WishListsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @wish_lists = WishList.where(is_public: true)
+    @wish_lists = WishList.includes(:user).where(is_public: true)
   end
 
   def show
@@ -28,7 +28,7 @@ class WishListsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to wish_lists_path, notice: 'このリストは見つかりませんでした'
       return
-  end
+    end
   # リストの Wish を取得
   @wishes = @wish_list.wishes
   end
