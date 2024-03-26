@@ -1,7 +1,17 @@
 <%# 全ての Wish に編集アイコンと削除アイコンを追加 %>
 <% @wishes.each do |wish| %>
   <%= turbo_stream.after "wish_#{wish.id}", partial: "icons", locals: { wish: wish } %>
+  <%# 全ての Wish にチェックボックスを追加 %>
+  <% if wish.granted %>
+    <%= turbo_stream.prepend "wish_link_#{wish.id}", partial: 'wishes/checkbox' %>
+  <% else %>
+    <%= turbo_stream.prepend "wish_link_#{wish.id}", partial: 'wishes/uncheckbox' %>
+  <% end %>
 <% end %>
+<%# Wish 作成フォームを追加 %>
+<%= turbo_stream.after 'list_header', partial: 'wishes/new', locals: { wish: Wish.new } %>
+<%# WishList のアイコンを追加 %>
+<%= turbo_stream.after 'title', partial: 'wish_lists/icons', locals: { wish_list: current_user.wish_list } %>
 <%# 達成状況に応じて、表示する形式を切り替え %>
 <% if @wish.granted %>
   <%= turbo_stream.replace "wish_frame_#{@wish.id}", partial: "checked_wish", locals: { wish: @wish } %>

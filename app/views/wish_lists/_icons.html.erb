@@ -1,0 +1,30 @@
+<%# アイコン %>
+<div class="flex gap-3 ml-3 ajax">
+  <!-- 編集アイコン -->
+  <div class="tooltip" data-tip="名前の変更">
+    <%= link_to edit_wish_list_path(wish_list), data: { turbo_stream: true } do %>
+      <i class="fa-solid fa-pen-to-square text-2xl"></i>
+    <% end %>
+  </div>
+  <%# 削除アイコン %>
+  <div class="tooltip" data-tip="リストの削除">
+    <i class="fa-solid fa-eraser text-2xl cursor-pointer"  onclick= <%= "my_modal_#{wish_list.id}.showModal()" %>></i>
+  </div>
+  <%# モーダル部分 %>
+  <dialog id= <%= "my_modal_#{wish_list.id}" %> class="modal">
+    <div class="modal-box">
+      <p class="py-4 text-xl"><%= "「#{wish_list.title}」を削除しますか？"%></p>
+      <p class="py-4 text-xl text-error"><%= "リストを削除するとアカウントも削除されます"%></p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn btn-outline">キャンセル</button>
+        </form>
+        <%# 削除へのリンク %>
+        <%= link_to wish_list_path(wish_list), data: { turbo_stream: true, turbo_method: :delete } do %>
+          <button class="btn btn-outline btn-error">削除</button>
+        <% end %>
+      </div>
+    </div>
+  </dialog>
+</div>
