@@ -1,1 +1,5 @@
 <%= turbo_stream.remove "wish_frame_#{@wish.id}" %>
+<%# Wishが存在しない場合、説明文を追加 %>
+<% if @wishes.blank? %>
+  <%= turbo_stream.append 'wishes', partial: 'nothing_wishes' %>
+<% end %>

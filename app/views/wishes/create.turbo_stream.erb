@@ -1,9 +1,15 @@
-<%# 作成失敗などのエラーがあるときは、新規作成欄のみを置き換え %>
+<%# 作成失敗 %>
 <% if @wish.errors.present? %>
+  <%# エラーメッセージが複数出ないように、以前の内容を削除 %>
   <%= turbo_stream.remove 'alert' %>
+  <%# 作成フォームを再表示　%>
   <%= turbo_stream.replace 'new', partial: 'new', locals: { wish: @wish } %>
-<%# 作成に成功すると、新しい新規作成欄を用意し、末尾に作成した Wish を追加 %>
+<%# 作成成功 %>
 <% else %>
+  <%# Wish がひとつもない説明文を削除 %>
+  <%= turbo_stream.remove 'nothing_text' %>
+  <%# 新しい新規作成欄を用意 %>
   <%= turbo_stream.replace 'new', partial: 'new', locals: { wish: Wish.new } %>
+  <%# 末尾に作成した Wish を追加 %>
   <%= turbo_stream.append 'wishes', partial: 'unchecked_wish', locals: { wish: @wish } %>
 <% end %>
