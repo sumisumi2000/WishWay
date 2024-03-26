@@ -33,6 +33,17 @@ class WishListsController < ApplicationController
   @wishes = @wish_list.wishes.order('created_at ASC')
   end
 
+  def destroy
+    # 削除する WishList をログインユーザーから取得
+    wish_list = current_user.wish_list
+    # 削除
+    wish_list.destroy!
+    # ユーザーの削除
+    current_user.destroy!
+    # トップページへ戻る
+    redirect_to root_path, notice: 'バケットリストとアカウントを削除しました', status: :see_other
+  end
+
   def lock
     # ログインユーザーの WishList を取得
     wish_list = current_user.wish_list

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login', to: "user_sessions#create"
   delete 'logout', to: 'user_sessions#destroy', as: :logout
   # WishList
-  resources :wish_lists, only: %i[show index]
+  resources :wish_lists, only: %i[show index edit destroy]
   post 'lock', to: 'wish_lists#lock'
   post 'unlock', to: 'wish_lists#unlock'
   # Wish
