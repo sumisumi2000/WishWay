@@ -33,6 +33,21 @@ class WishListsController < ApplicationController
   @wishes = @wish_list.wishes.order('created_at ASC')
   end
 
+  def edit
+    # 編集する WishList をログインユーザーから取得
+    @wish_list = current_user.wish_list
+  end
+
+  def update
+    # 更新する Wish をログインユーザーから取得
+    @wish_list = current_user.wish_list
+
+    # 更新に失敗した場合は、前の値を渡す
+    if !@wish_list.update(wish_list_params)
+      @wish_list.update(@wish_list.attributes_in_database)
+    end
+  end
+
   def destroy
     # 削除する WishList をログインユーザーから取得
     wish_list = current_user.wish_list
@@ -60,5 +75,11 @@ class WishListsController < ApplicationController
     @wish_list.is_public = true
     # データベースに保存
     @wish_list.save!
+  end
+
+  private
+
+  def wish_list_params
+    params.require(:wish_list).permit(:title)
   end
 end
