@@ -1,6 +1,6 @@
 <div class="w-5/6 mx-auto max-w-screen-xl">
-  <div class="my-10 py-10">
-    <h1 class="text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-dot text-center">
+  <div class="my-10">
+    <h1 class="text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-secondary text-center">
       新規登録
     </h1>
 
@@ -30,5 +30,9 @@
         <%= form.submit '新規登録', class: "btn mt-1" %>
       </div>
     <% end %>
+  </div>
+  <%# ログインページへのリンク %>
+  <div class="mx-auto text-center">
+    <%= link_to "ログインページへ", login_path, class: "link link-neutral"%>
   </div>
 </div>
