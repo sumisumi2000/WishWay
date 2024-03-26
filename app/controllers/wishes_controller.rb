@@ -48,8 +48,10 @@ class WishesController < ApplicationController
   end
 
   def destroy
+    # ログインユーザーの Wish を全て取得
+    @wishes = current_user.wish_list.wishes
     # 更新する Wish をログインユーザーから取得
-    @wish = current_user.wish_list.wishes.find(params[:id])
+    @wish = @wishes.find(params[:id])
     # 削除
     @wish.destroy!
     # 削除後、掲示板一覧ページにリダイレクト

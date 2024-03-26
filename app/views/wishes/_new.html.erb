@@ -1,7 +1,5 @@
-<div class="mb-2">
-  <%# バリデーションエラーメッセージ表示 %>
-  <%= render 'shared/error', object: wish %>
-</div>
+<%# バリデーションエラーメッセージ表示 %>
+<%= render 'shared/error', object: wish %>
 
 <%= form_with model: wish, class: 'flex items-center mb-5', id: 'new' do |form| %>
   <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control grow mr-3" %>
