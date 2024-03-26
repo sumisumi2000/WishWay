@@ -1,6 +1,6 @@
 <%# バリデーションエラーメッセージ表示 %>
 <% if object.errors.any? %>
-  <div role="alert" class="alert bg-primary">
+  <div role="alert" class="alert bg-primary" id="alert">
     <ul>
       <% object.errors.each do |error| %>
         <li><%= error.full_message %></li>
