@@ -30,7 +30,7 @@ class WishListsController < ApplicationController
       return
     end
   # リストの Wish を取得
-  @wishes = @wish_list.wishes
+  @wishes = @wish_list.wishes.order('created_at ASC')
   end
 
   def lock
