@@ -1,1 +1,14 @@
+<%# 編集フォームをリストのヘッダー部分と入れ替え %>
 <%= turbo_stream.replace 'edit', partial: "header", locals: { wish_list: @wish_list } %>
+<%# Wish 作成フォームを追加 %>
+<%= turbo_stream.after 'list_header', partial: 'wishes/new', locals: { wish: Wish.new } %>
+<% @wishes.each do |wish| %>
+  <%# 全ての Wish に編集アイコンと削除アイコンを追加 %>
+  <%= turbo_stream.after "wish_#{wish.id}", partial: "wishes/icons", locals: { wish: wish } %>
+  <%# 全ての Wish にチェックボックスを追加 %>
+  <% if wish.granted %>
+    <%= turbo_stream.prepend "wish_link_#{wish.id}", partial: 'wishes/checkbox' %>
+  <% else %>
+    <%= turbo_stream.prepend "wish_link_#{wish.id}", partial: 'wishes/uncheckbox' %>
+  <% end %>
+<% end %>

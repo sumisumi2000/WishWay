@@ -1,4 +1,4 @@
-<%# 編集アイコンと削除アイコンを全て取り除く%>
-<%= turbo_stream.remove_all '.icons' %>
+<%# 他の非同期の部分を全て取り除く %>
+<%= turbo_stream.remove_all '.ajax' %>
 <%# 編集ビューに切り替え %>
 <%= turbo_stream.replace "wish_#{@wish.id}", partial: "edit", locals: { wish: @wish } %>

@@ -1,8 +1,8 @@
 <div class="flex justify-between items-center basis-11/12" id= <%= "wish_#{wish.id}" %> >
   <div class="form-control basis-5/6">
     <div class="label">
-      <%= link_to uncheck_path(wish), class: "cursor-pointer flex items-center", data: { turbo_stream: true, turbo_method: :post } do %>
-        <input type="checkbox" checked="checked" class="checkbox checkbox-accent mr-3" />
+      <%= link_to uncheck_path(wish), class: "cursor-pointer flex items-center", data: { turbo_stream: true, turbo_method: :post }, id: "wish_link_#{wish.id}" do %>
+        <%= render 'wishes/checkbox' %>
         <span class="label-text text-xl text-zinc-400 line-through">
           <%= wish.title %>
         </span>
