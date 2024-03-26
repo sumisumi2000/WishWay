@@ -6,11 +6,14 @@
       <div class="flex-none text-center">
         <p class="py-6 text-2xl">自分が本当にしたいこと、できていますか？</p>
         <p class="py-6 text-lg">WishWay でバケットリストを作成しよう</p>
-        <p class="pt-12">
-          <%= link_to new_user_path do %>
-            <button class="btn btn-primary">バケットリストを作成する</button>
-          <% end %>
-        </p>
+        <%# アカウント作成ページへのリンクはログアウト状態の時のみ表示 %>
+        <% unless logged_in? %>
+          <p class="pt-12">
+            <%= link_to new_user_path do %>
+              <button class="btn btn-primary">バケットリストを作成する</button>
+            <% end %>
+          </p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -91,11 +94,14 @@
     <%= link_to wish_lists_path do %>
       <button class="btn btn-accent">みんなのリストを見にいく</button>
     <% end %>
-    <%= link_to login_path do %>
-      <button class="btn btn-secondary">ログインページ</button>
-    <% end %>
-    <%= link_to new_user_path do %>
-      <button class="btn btn-primary">バケットリストを作成する</button>
+    <%# アカウント作成ページとログインページへのリンクはログアウト状態の時のみ表示 %>
+    <% unless logged_in? %>
+      <%= link_to login_path do %>
+        <button class="btn btn-secondary">ログインページ</button>
+      <% end %>
+      <%= link_to new_user_path do %>
+        <button class="btn btn-primary">バケットリストを作成する</button>
+      <% end %>
     <% end %>
   </div>
 </div>

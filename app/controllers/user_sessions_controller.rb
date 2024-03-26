@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  before_action :redirect_if_authenticated, only: %i[new create]
 
   def new; end
 
