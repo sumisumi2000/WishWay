@@ -1,6 +1,6 @@
 class WishList < ApplicationRecord
   belongs_to :user
-  has_many :wishes
+  has_many :wishes, dependent: :destroy
 
   # 値が空でない（nil や空文字でない）ようにバリデーションを設定
   # 最大255文字かつ未記入であることを許容しないバリデーションを設定

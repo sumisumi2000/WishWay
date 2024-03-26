@@ -1,19 +1,5 @@
 <div class="w-5/6 mx-auto max-w-screen-xl">
-  <div class="flex justify-between items-center mt-5 mb-10 h-12">
-    <!-- タイトル -->
-    <%= @wish_list.title %>
-    <!-- ログインユーザーのリストにのみ -->
-    <% if logged_in? && current_user.my_list?(@wish_list) %>
-      <div class="share flex">
-      <%# 公開設定の場合のみ%>
-      <% if @wish_list.is_public %>
-        <%= render 'shared/share_X_button', wish_list: @wish_list %>
-      <% end%>
-      <%# 公開設定ボタン %>
-      <%= render 'toggle', wish_list: @wish_list %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'header', wish_list: @wish_list %>
 
   <!-- ログインユーザーのリストにのみ新規作成欄を表示 -->
   <% if logged_in? && current_user.my_list?(@wish_list) %>
