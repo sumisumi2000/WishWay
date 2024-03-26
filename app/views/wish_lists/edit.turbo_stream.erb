@@ -1,2 +1,4 @@
 <%# 編集ビューに切り替え %>
 <%= turbo_stream.replace "list_header", partial: "edit", locals: { wish_list: @wish_list } %>
+<%# 他の非同期の部分を全て取り除く %>
+<%= turbo_stream.remove_all '.ajax' %>

@@ -46,6 +46,9 @@ class WishListsController < ApplicationController
     if !@wish_list.update(wish_list_params)
       @wish_list.update(@wish_list.attributes_in_database)
     end
+
+    # ログインユーザーの全ての Wish を取得
+    @wishes = @wish_list.wishes
   end
 
   def destroy
