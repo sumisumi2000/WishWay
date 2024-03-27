@@ -6,8 +6,8 @@
       <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control grow mr-3" %>
       <%= form.submit value: '新規作成', class: "btn btn-accent" %>
     <% end %>
-    <i class="fa-regular fa-circle-question text-4xl ml-3 cursor-pointer" onclick="my_modal_1.showModal()"></i>
-    <dialog id="my_modal_1" class="modal">
+    <i class="fa-regular fa-circle-question text-4xl ml-3 cursor-pointer" onclick="tip_modal.showModal()"></i>
+    <dialog id="tip_modal" class="modal">
       <div class="modal-box w-5/6 max-w-3xl">
         <h3 class="font-bold text-lg">Wish 作成のコツ</h3>
         <ul class="text-lg list-disc pl-10">
