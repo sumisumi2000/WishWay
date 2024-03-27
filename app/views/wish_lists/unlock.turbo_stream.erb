@@ -1,2 +1,8 @@
+<%# アンロック状態のアイコンに切り替え %>
 <%= turbo_stream.replace 'toggle', partial: 'public' %>
+<%# Xシェアボタンを追加 %>
 <%= turbo_stream.prepend 'toggle', partial: 'shared/share_X_button', locals: { wish_list: @wish_list } %>
+<%# 公開設定の説明を追加 %>
+<% if @wish_list.is_public? %>
+  <%= turbo_stream.prepend 'toggle', partial: 'public_introduction', locals: { wish_list: @wish_list } %>
+<% end %>

@@ -11,7 +11,7 @@
     <% if @wishes.present? %>
         <%= render(partial: 'wishes/wish', collection: @wishes) %>
     <% else %>
-      <%= render 'wishes/nothing_wishes' %>
+      <%= render 'wishes/nothing_wishes', wish_list: @wish_list %>
     <% end %>
   </div>
 </div>
