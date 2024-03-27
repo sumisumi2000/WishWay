@@ -3,6 +3,13 @@
 <% end %>
 
 <div class="w-5/6 mx-auto max-w-screen-xl">
+  <%# 一覧ページへ戻るアイコン %>
+  <div class="tooltip" data-tip="一覧ページへ">
+    <%= link_to wish_lists_path do %>
+      <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 text-4xl"></i>
+    <% end %>
+  </div>
+  <%# タイトル、編集＆削除アイコン、公開設定の説明文、Xシェアボタン、公開アイコン %>
   <%= render 'header', wish_list: @wish_list %>
 
   <!-- ログインユーザーのリストにのみ新規作成欄を表示 -->
