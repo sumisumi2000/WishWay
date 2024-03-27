@@ -12,6 +12,8 @@
 <%= turbo_stream.after 'list_header', partial: 'wishes/new', locals: { wish: Wish.new } %>
 <%# WishList のアイコンを追加 %>
 <%= turbo_stream.after 'title', partial: 'wish_lists/icons', locals: { wish_list: current_user.wish_list } %>
+<%# ヘッダーの上に一覧ページへ戻るアイコンを追加 %>
+<%= turbo_stream.before 'list_header', partial: 'wish_lists/back' %>
 <%# 達成状況に応じて、表示する形式を切り替え %>
 <% if @wish.granted %>
   <%= turbo_stream.replace "wish_frame_#{@wish.id}", partial: "checked_wish", locals: { wish: @wish } %>
