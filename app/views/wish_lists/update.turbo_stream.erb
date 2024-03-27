@@ -1,5 +1,7 @@
 <%# 編集フォームをリストのヘッダー部分と入れ替え %>
 <%= turbo_stream.replace 'edit', partial: "header", locals: { wish_list: @wish_list } %>
+<%# ヘッダーの上に一覧ページへ戻るアイコンを追加 %>
+<%= turbo_stream.before 'list_header', partial: 'back' %>
 <%# Wish 作成フォームを追加 %>
 <%= turbo_stream.after 'list_header', partial: 'wishes/new', locals: { wish: Wish.new } %>
 <% @wishes.each do |wish| %>
