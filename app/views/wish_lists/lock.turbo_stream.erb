@@ -2,5 +2,5 @@
 <%= turbo_stream.replace 'toggle', partial: 'private' %>
 <%# Xシェアボタンを取り除く %>
 <%= turbo_stream.remove 'X_share' %>
-<%# 公開設定の説明を取り除く %>
-<%= turbo_stream.remove 'intro' %>
+<%# 公開設定の説明を非公開のものに入れ替え %>
+<%= turbo_stream.replace 'intro', partial: 'private_introduction' %>

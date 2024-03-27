@@ -9,6 +9,8 @@
       <% if wish_list.is_public %>
         <%= render 'wish_lists/public_introduction' %>
         <%= render 'shared/share_X_button', wish_list: wish_list %>
+      <% else %>
+        <%= render 'wish_lists/private_introduction' %>
       <% end%>
       <%# 公開設定ボタン %>
       <%= render 'toggle', wish_list: wish_list %>
