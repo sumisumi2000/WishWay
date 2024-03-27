@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <title>WishWay｜<%= @wish_list.title %></title>
+<% end %>
+
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <%= render 'header', wish_list: @wish_list %>
 
