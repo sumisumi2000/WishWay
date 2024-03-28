@@ -1,5 +1,7 @@
 # WishWay
 
+![top_page](/app/assets/images/top_page.png)
+
 ## サービス URL
 
 https://wishway.onrender.com/
