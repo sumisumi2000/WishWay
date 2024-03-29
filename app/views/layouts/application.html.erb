@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html data-theme="retro">
   <head>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="" />
+    <%# ウィッシュリストが存在するときは、そのリストの詳細ページ %>
+    <% if @wish_list %>
+      <meta property="og:url" content=<%= "#{wish_list_url(@wish_list.user)}" %>  />
+    <%# ウィッシュリストが存在しないときは、リスト一覧ページ %>
+    <% else %>
+      <meta property="og:url" content=<%= "#{wish_lists_url}" %>  />
+    <% end %>
+    <meta property="og:title" content="WishWay" />
+    <meta property="og:description" content="バケットリストの作成と共有" />
+    <meta property="og:image" content="https://i.gyazo.com/7b31f55dfa608addea69247f09c0bb28.jpg" />
     <%= yield :head %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
