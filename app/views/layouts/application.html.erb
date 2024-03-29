@@ -3,7 +3,13 @@
   <head>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="" />
-    <meta property="og:url" content="https://wishway.onrender.com/wish_lists" />
+    <%# ウィッシュリストが存在するときは、そのリストの詳細ページ %>
+    <% if @wish_list %>
+      <meta property="og:url" content=<%= "#{wish_list_url(@wish_list.user)}" %>  />
+    <%# ウィッシュリストが存在しないときは、リスト一覧ページ %>
+    <% else %>
+      <meta property="og:url" content=<%= "#{wish_lists_url}" %>  />
+    <% end %>
     <meta property="og:title" content="WishWay" />
     <meta property="og:description" content="バケットリストを作成したよ" />
     <meta property="og:image" content="https://i.gyazo.com/7b31f55dfa608addea69247f09c0bb28.jpg" />
