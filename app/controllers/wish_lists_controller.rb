@@ -2,7 +2,8 @@ class WishListsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @wish_lists = WishList.includes(:user).where(is_public: true)
+    @q = WishList.ransack(params[:q])
+    @wish_lists = @q.result(distinct: true).includes(:user).where(is_public: true)
   end
 
   def show

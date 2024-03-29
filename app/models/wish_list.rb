@@ -6,4 +6,8 @@ class WishList < ApplicationRecord
   # 最大255文字かつ未記入であることを許容しないバリデーションを設定
   validates :title, presence: true, length: { maximum: 255 }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["title"]
+  end
+
 end
