@@ -3,8 +3,17 @@
 <% end %>
 
 <div class="w-5/6 mx-auto max-w-screen-xl">
-  <%# 一覧ページへ戻るアイコン %>
-  <%= render 'back' %>
+  <div class="flex justify-between">
+    <%# 一覧ページへ戻るアイコン %>
+    <%= render 'back' %>
+    <%# 公開設定の場合のみ%>
+      <% if @wish_list.is_public %>
+        <%= render 'wish_lists/public_introduction' %>
+      <%# 非公開時 %>
+      <% else %>
+        <%= render 'wish_lists/private_introduction' %>
+      <% end%>
+  </div>
   <%# タイトル、編集＆削除アイコン、公開設定の説明文、Xシェアボタン、公開アイコン %>
   <%= render 'header', wish_list: @wish_list %>
 
@@ -18,7 +27,7 @@
     <% if @wishes.present? %>
         <%= render(partial: 'wishes/wish', collection: @wishes) %>
     <% else %>
-      <%= render 'wishes/nothing_wishes' %>
+      <%= render 'wishes/nothing_wishes', wish_list: @wish_list %>
     <% end %>
   </div>
 </div>
