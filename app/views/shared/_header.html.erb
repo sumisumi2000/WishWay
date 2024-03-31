@@ -1,19 +1,19 @@
 <div class="navbar bg-base-200">
   <div class="flex-1">
-    <div class="btn btn-ghost text-xl">
+    <div class="btn btn-ghost text-xs md:text-xl">
       <%= link_to 'WishWay', root_path %>
     </div>
   </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
+  <div class="flex-none w-3/4 ml-auto">
+    <ul class="menu menu-horizontal text-xs md:text-base md:px-1 ml-auto">
       <li>
-        <%= link_to '一覧ページ', wish_lists_path %>
+        <%= link_to '一覧ページ', wish_lists_path, class: "px-1 md:px-2" %>
       </li>
       <li>
-        <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id) %>
+        <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id), class: "px-1 md:px-2" %>
       </li>
       <li>
-        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
+        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "px-1 md:px-2" %>
       </li>
     </ul>
   </div>
