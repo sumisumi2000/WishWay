@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="retro">
+<html class="min-h-screen" data-theme="retro">
   <head>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="" />
@@ -36,20 +36,26 @@
   </head>
 
   <body>
-    <div class="font-kiwimaru text-neutral flex flex-col min-h-screen">
+    <div class="font-kiwimaru text-neutral min-h-screen w-full relative pb-12">
       <!-- ヘッダーの表示 -->
-      <% if logged_in? %>
-        <%= render 'shared/header' %>
-      <% else %>
-        <%= render 'shared/before_login_header' %>
-      <% end %>
-      <div class="my-5">
-      <!-- フラッシュメッセージの表示 -->
-      <%= render "shared/flash" %>
-      <%= yield %>
+      <div class="w-full">
+        <% if logged_in? %>
+          <%= render 'shared/header' %>
+        <% else %>
+          <%= render 'shared/before_login_header' %>
+        <% end %>
       </div>
-      <!-- フッター -->
-      <%= render 'shared/footer' %>
+      <div class="flex flex-col md:flex-none w-full">
+        <div class="my-5">
+        <!-- フラッシュメッセージの表示 -->
+        <%= render "shared/flash" %>
+        <%= yield %>
+        </div>
+      </div>
+      <div class="absolute bottom-0 w-full">
+        <!-- フッター -->
+        <%= render 'shared/footer' %>
+      </div>
     </div>
   </body>
 </html>

@@ -6,13 +6,13 @@
   <%# トップ画像とキャッチコピー %>
   <div class="hero bg-base-200 rounded-lg">
     <div class="hero-content flex-col lg:flex-row">
-      <%= image_tag "top.png", class: "max-w-sm" %>
+      <%= image_tag "top.png", class: "w-full lg:max-w-sm" %>
       <div class="flex-none text-center">
-        <p class="py-6 text-2xl">自分が本当にしたいこと、できていますか？</p>
-        <p class="py-6 text-lg">WishWay でバケットリストを作成しよう</p>
+        <p class="py-6 text-sm md:text-2xl">自分が本当にしたいこと、できていますか？</p>
+        <p class="py-6 text-xs md:text-lg">WishWay でバケットリストを作成しよう</p>
         <%# アカウント作成ページへのリンクはログアウト状態の時のみ表示 %>
         <% unless logged_in? %>
-          <p class="pt-12">
+          <p class="lg:pt-12">
             <%= link_to new_user_path do %>
               <button class="btn btn-primary">バケットリストを作成する</button>
             <% end %>
@@ -24,10 +24,10 @@
   <%# バケットリストとは %>
   <div class="collapse collapse-plus bg-base-200 w-5/6 mx-auto my-5">
     <input type="checkbox" />
-    <div class="collapse-title text-xl font-medium">
+    <div class="collapse-title text-base md:text-xl font-medium">
       バケットリストとは？
     </div>
-    <ul class="collapse-content text-lg list-disc pl-10">
+    <ul class="collapse-content text-sm md:text-lg list-disc pl-10">
         <li>バケットリストとは、「死ぬまでにやりたいことリスト」のことです</li>
         <li>「kick the bucket（日本語で死ぬという意味）」という英語のスラングが言葉の由来となっています。</li>
     <ul>
@@ -35,27 +35,27 @@
   <%# 使い方 %>
   <div class="collapse collapse-plus bg-base-200 w-5/6 mx-auto my-5">
     <input type="checkbox" />
-    <div class="collapse-title text-xl font-medium text-start">
+    <div class="collapse-title text-base md:text-xl font-medium">
       アプリの使い方
     </div>
-    <div class="collapse-content grid grid-cols-2">
+    <div class="collapse-content grid grid-rows-1 lg:grid-cols-2 w-full">
       <%# 全てのユーザーができること %>
-      <div class="card w-96 bg-base-100 shadow-xl my-5 mx-auto">
+      <div class="card w-5/6 bg-base-100 shadow-xl my-5 mx-auto">
         <div class="card-body">
-          <h2 class="card-title">全てのユーザー</h2>
-          <p>みんなのバケットリストを閲覧できます</p>
-          <div class="card-actions justify-end">
+          <h2 class="card-title text-base md:text-xl">全てのユーザー</h2>
+          <p class="text-sm md:text-xl">みんなのバケットリストを閲覧できます</p>
+          <div class="card-actions justify-center md:justify-end">
             <%= link_to wish_lists_path do %>
-              <button class="btn btn-accent mt-2">見にいく</button>
+              <button class="btn btn-accent mt-2 btn-sm md:btn-md lg:btn-lg">見にいく</button>
             <% end %>
           </div>
         </div>
       </div>
       <%# 公開設定 %>
-      <div class="card w-96 bg-base-100 shadow-xl my-5 mx-auto">
+      <div class="card w-5/6 bg-base-100 shadow-xl my-5 mx-auto">
         <div class="card-body">
-          <h2 class="card-title text-accent">ログイン限定</h2>
-          <ul class="list-disc pl-5">
+          <h2 class="card-title text-accent text-base md:text-xl">ログイン限定</h2>
+          <ul class="list-disc text-xs md:text-xl pl-5">
             <li>Wish の作成と編集</li>
             <li>Wish の達成</li>
             <li>マイリストの公開設定</li>
@@ -68,10 +68,10 @@
   <%# 作成のコツ %>
   <div class="collapse collapse-plus bg-base-200 w-5/6 mx-auto my-5">
     <input type="checkbox" />
-    <div class="collapse-title text-xl font-medium">
+    <div class="collapse-title text-base md:text-xl font-medium">
       Wish 作成のコツ
     </div>
-    <ul class="collapse-content text-lg list-disc pl-10">
+    <ul class="collapse-content text-xs md:text-lg list-disc pl-10">
       <li class="py-3">「できるかどうか」は考えない
         <ul class="list-[circle] ml-4">
           <li>お金や時間などの制約は柔らかい思考の妨げとなるので、とっぱらいましょう</li>
@@ -94,17 +94,17 @@
     <ul>
   </div>
   <%# ログイン & 新規登録 & 一覧ページ へのボタン %>
-  <div class="flex justify-around w-5/6 mx-auto">
+  <div class="flex flex-col lg:flex-row gap-3 justify-around w-5/6 mx-auto text-center">
     <%= link_to wish_lists_path do %>
-      <button class="btn btn-accent">みんなのリストを見にいく</button>
+      <button class="btn btn-accent w-5/6 lg:w-fit">みんなのリストを見にいく</button>
     <% end %>
     <%# アカウント作成ページとログインページへのリンクはログアウト状態の時のみ表示 %>
     <% unless logged_in? %>
       <%= link_to login_path do %>
-        <button class="btn btn-secondary">ログインページ</button>
+        <button class="btn btn-secondary w-5/6 lg:w-fit">ログインページ</button>
       <% end %>
       <%= link_to new_user_path do %>
-        <button class="btn btn-primary">バケットリストを作成する</button>
+        <button class="btn btn-primary w-5/6 lg:w-fit">バケットリストを作成する</button>
       <% end %>
     <% end %>
   </div>

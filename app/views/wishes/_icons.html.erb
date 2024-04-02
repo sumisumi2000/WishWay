@@ -1,14 +1,14 @@
-<div class="icons ml-3 basis-1/12 flex justify-around ajax">
+<div class="icons ml-1 md:ml-3 basis-1/12 flex flex-col md:flex-row gap-1 justify-around ajax">
   <!-- 編集アイコン -->
   <div class="tooltip" data-tip="編集する">
     <%= link_to edit_wish_path(wish), data: { turbo_stream: true } do %>
-      <i class="fa-solid fa-pen-to-square text-2xl"></i>
+      <i class="fa-solid fa-pen-to-square text-xl md:text-2xl"></i>
     <% end %>
   </div>
 
   <!-- 削除アイコン -->
   <div class="tooltip" data-tip="削除する">
-    <i class="fa-solid fa-eraser text-2xl cursor-pointer" onclick= <%= "my_modal_#{wish.id}.showModal()" %>></i>
+    <i class="fa-solid fa-eraser text-xl md:text-2xl cursor-pointer" onclick= <%= "my_modal_#{wish.id}.showModal()" %>></i>
   </div>
   <%# モーダル部分 %>
   <dialog id= <%= "my_modal_#{wish.id}" %> class="modal">

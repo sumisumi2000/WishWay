@@ -3,14 +3,14 @@
   <%= render 'shared/error', object: wish %>
   <div class="flex items-center mb-5" id='new'>
     <%= form_with model: wish, class: 'flex items-center grow' do |form| %>
-      <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control text-xl grow mr-3" %>
-      <%= form.submit value: '新規作成', class: "btn btn-accent" %>
+      <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control text-xs md:text-xl grow mr-1 md:mr-3" %>
+      <%= form.submit value: '作成', class: "btn btn-accent" %>
     <% end %>
-    <i class="fa-regular fa-circle-question text-4xl ml-3 cursor-pointer" onclick="tip_modal.showModal()"></i>
-    <dialog id="tip_modal" class="modal">
+    <i class="fa-regular fa-circle-question text-3xl md:text-4xl ml-1 md:ml-3 cursor-pointer" onclick="tip_modal.showModal()"></i>
+    <dialog id="tip_modal" class="modal w-screen h-screen">
       <div class="modal-box w-5/6 max-w-3xl">
-        <h3 class="font-bold text-lg">Wish 作成のコツ</h3>
-        <ul class="text-lg list-disc pl-10">
+        <h3 class="font-bold test-base md:text-lg">Wish 作成のコツ</h3>
+        <ul class="test-xs md:text-lg list-disc pl-10">
           <li class="py-3">「できるかどうか」は考えない
             <ul class="list-[circle] ml-4">
               <li>お金や時間などの制約は柔らかい思考の妨げとなるので、とっぱらいましょう</li>
