@@ -1,18 +1,21 @@
 <div class="flex justify-between items-start md:items-center mt-5 mb-10 h-12" id='list_header'>
+  <!-- スマホサイズは縦並び -->
   <div class="flex flex-col md:flex-row">
     <!-- タイトル -->
     <div class="text-base md:text-xl" id='title'><%= wish_list.title %></div>
     <!-- ログインユーザーのリストにのみ -->
     <% if logged_in? && current_user.my_list?(wish_list) %>
       <%= render 'icons', wish_list: wish_list %>
-  </div>
-      <div class="flex flex-col gap-1 md:flex-row ml-auto items-center">
-        <%# 公開設定の場合のみ%>
-        <% if wish_list.is_public %>
-          <%= render 'shared/share_X_button', wish_list: wish_list %>
-        <% end %>
-        <%# 公開設定ボタン %>
-        <%= render 'toggle', wish_list: wish_list %>
-        </div>
     <% end %>
+  </div>
+  <% if logged_in? && current_user.my_list?(wish_list) %>
+    <div class="flex flex-col gap-1 md:flex-row ml-auto items-center">
+      <%# 公開設定の場合のみ%>
+      <% if wish_list.is_public %>
+        <%= render 'shared/share_X_button', wish_list: wish_list %>
+      <% end %>
+      <%# 公開設定ボタン %>
+      <%= render 'toggle', wish_list: wish_list %>
+    </div>
+  <% end %>
 </div>
