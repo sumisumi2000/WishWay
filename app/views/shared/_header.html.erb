@@ -7,13 +7,13 @@
   <div class="flex-none w-2/3 ml-auto">
     <ul class="menu menu-horizontal text-xs md:text-base md:px-1 ml-auto">
       <li>
-        <%= link_to '一覧ページ', wish_lists_path, class: "px-1 md:px-2" %>
+        <%= link_to '一覧ページ', wish_lists_path, class: "px-1 md:px-3" %>
       </li>
       <li>
-        <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id), class: "px-1 md:px-2" %>
+        <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id), class: "px-1 md:px-3" %>
       </li>
       <li>
-        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "px-1 md:px-2" %>
+        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "px-1 md:px-3" %>
       </li>
     </ul>
   </div>
