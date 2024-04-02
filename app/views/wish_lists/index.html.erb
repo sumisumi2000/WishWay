@@ -6,7 +6,8 @@
     みんなのバケットリスト
   </h1>
 
-<%= render 'shared/search_form' %>
+  <%# 検索フォーム %>
+  <%= render 'shared/search_form' %>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4">
     <%= render(@wish_lists) %>
