@@ -96,15 +96,15 @@
   <%# ログイン & 新規登録 & 一覧ページ へのボタン %>
   <div class="flex flex-col lg:flex-row gap-3 justify-around w-5/6 mx-auto text-center">
     <%= link_to wish_lists_path do %>
-      <button class="btn btn-accent">みんなのリストを見にいく</button>
+      <button class="btn btn-accent w-5/6 lg:w-fit">みんなのリストを見にいく</button>
     <% end %>
     <%# アカウント作成ページとログインページへのリンクはログアウト状態の時のみ表示 %>
     <% unless logged_in? %>
       <%= link_to login_path do %>
-        <button class="btn btn-secondary">ログインページ</button>
+        <button class="btn btn-secondary w-5/6 lg:w-fit">ログインページ</button>
       <% end %>
       <%= link_to new_user_path do %>
-        <button class="btn btn-primary">バケットリストを作成する</button>
+        <button class="btn btn-primary w-5/6 lg:w-fit">バケットリストを作成する</button>
       <% end %>
     <% end %>
   </div>
