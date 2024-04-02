@@ -5,12 +5,12 @@
         <%# チェックボックス %>
         <%= render 'wishes/uncheckbox' %>
         <%# タイトル %>
-        <span class="label-text text-xl">
+        <span class="label-text text-base md:text-xl">
           <%= wish.title %>
         </span>
       <% end %>
     </div>
   </div>
   <!-- 作成日 -->
-  <div class="ml-3 min-w-40">作成日：<%= l wish.created_at %></div>
+  <div class="text-xs md:text-base ml-1 md:ml-3 md:min-w-40">作成日：<%= l wish.created_at %></div>
 </div>

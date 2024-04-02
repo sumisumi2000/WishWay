@@ -1,6 +1,6 @@
-<div class="flex justify-between items-start md:items-center mt-5 mb-10 h-12" id='list_header'>
+<div class="flex justify-between items-start md:items-center mt-5 mb-10 sm:h-16 md:h-12" id='list_header'>
   <!-- スマホサイズは縦並び -->
-  <div class="flex flex-col md:flex-row">
+  <div class="flex flex-col md:flex-row gap-1">
     <!-- タイトル -->
     <div class="text-base md:text-xl" id='title'><%= wish_list.title %></div>
     <!-- ログインユーザーのリストにのみ -->
@@ -9,7 +9,7 @@
     <% end %>
   </div>
   <% if logged_in? && current_user.my_list?(wish_list) %>
-    <div class="flex flex-col gap-1 md:flex-row ml-auto items-center">
+    <div class="flex ml-auto items-center">
       <%# 公開設定の場合のみ%>
       <% if wish_list.is_public %>
         <%= render 'shared/share_X_button', wish_list: wish_list %>
