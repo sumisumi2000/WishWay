@@ -3,7 +3,7 @@
   <div role="alert" class="alert bg-primary mb-2" id="alert">
     <ul>
       <% object.errors.each do |error| %>
-        <li><%= error.full_message %></li>
+        <li class="text-sm md:text-base"><%= error.full_message %></li>
       <% end %>
     </ul>
   </div>
