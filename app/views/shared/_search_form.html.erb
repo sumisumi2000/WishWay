@@ -1,4 +1,4 @@
 <%= search_form_for @q, class: "mb-4 flex" do |form| %>
-  <%= form.search_field :title_cont, placeholder: 'タイトルで検索', class: "input input-bordered form-control text-sm md:text-xl grow mr-2" %>
+  <%= form.search_field :title_cont, placeholder: 'タイトルで検索', class: "input input-bordered form-control text-xs md:text-xl grow-0 md:grow mr-2" %>
   <%= form.submit class: "btn" %>
 <% end %>

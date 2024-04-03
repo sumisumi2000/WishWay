@@ -2,8 +2,8 @@
   <%# バリデーションエラーメッセージ表示 %>
   <%= render 'shared/error', object: wish %>
   <div class="flex items-center mb-5" id='new'>
-    <%= form_with model: wish, class: 'flex items-center grow' do |form| %>
-      <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control text-xs md:text-xl grow mr-1 md:mr-3" %>
+    <%= form_with model: wish, class: 'flex items-center grow-0 md:grow' do |form| %>
+      <%= form.text_field :title, placeholder: 'Wish の新規作成', class: "input input-bordered border-2 form-control text-xs md:text-xl grow-0 md:grow mr-1 md:mr-3" %>
       <%= form.submit value: '作成', class: "btn btn-accent" %>
     <% end %>
     <i class="fa-regular fa-circle-question text-3xl md:text-4xl ml-1 md:ml-3 cursor-pointer" onclick="tip_modal.showModal()"></i>
