@@ -16,8 +16,8 @@ ja:
       default: "%Y/%m/%d"
   views:
     pagination:
-      first: "&laquo; 最初"
-      last: "最後 &raquo;"
+      first: "&laquo; 初め"
+      last: "終わり &raquo;"
       previous: "&lsaquo; 前へ"
       next: "次へ &rsaquo;"
       truncate: "&hellip;"
