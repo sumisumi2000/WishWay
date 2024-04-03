@@ -18,6 +18,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(root_path, notice: 'ログアウトしました')
+    redirect_to root_path, notice: 'ログアウトしました', status: :see_other
   end
 end
