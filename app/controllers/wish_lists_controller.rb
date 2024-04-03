@@ -3,11 +3,7 @@ class WishListsController < ApplicationController
 
   def index
     @q = WishList.ransack(params[:q])
-<<<<<<< HEAD
-    @wish_lists = @q.result(distinct: true).includes(:user).where(is_public: true).page(params[:page])
-=======
-    @wish_lists = @q.result(distinct: true).includes(:user).where(is_public: true).order('created_at DESC')
->>>>>>> main
+    @wish_lists = @q.result(distinct: true).includes(:user).where(is_public: true).order('created_at DESC').page(params[:page])
   end
 
   def show
