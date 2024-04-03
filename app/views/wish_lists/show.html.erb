@@ -1,18 +1,21 @@
 <% content_for :head do %>
   <title>WishWay｜<%= @wish_list.title %></title>
 <% end %>
-
 <div class="w-5/6 mx-auto max-w-screen-xl">
-  <div class="flex justify-between">
+  <div class="flex justify-between items-center">
     <%# 一覧ページへ戻るアイコン %>
     <%= render 'back' %>
-    <%# 公開設定の場合のみ%>
-      <% if @wish_list.is_public %>
-        <%= render 'wish_lists/public_introduction' %>
-      <%# 非公開時 %>
-      <% else %>
-        <%= render 'wish_lists/private_introduction' %>
-      <% end%>
+    <div class="ml-auto" id='over_header'>
+      <%# 公開設定の場合のみ%>
+      <% if logged_in? && current_user.my_list?(@wish_list) %>
+        <% if @wish_list.is_public %>
+          <%= render 'wish_lists/public_introduction' %>
+        <%# 非公開時 %>
+        <% else %>
+          <%= render 'wish_lists/private_introduction' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <%# タイトル、編集＆削除アイコン、公開設定の説明文、Xシェアボタン、公開アイコン %>
   <%= render 'header', wish_list: @wish_list %>

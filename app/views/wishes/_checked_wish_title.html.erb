@@ -3,7 +3,7 @@
     <div class="label">
       <%= link_to uncheck_path(wish), class: "cursor-pointer flex items-center", data: { turbo_stream: true, turbo_method: :post }, id: "wish_link_#{wish.id}" do %>
         <%= render 'wishes/checkbox' %>
-        <span class="label-text text-xl text-zinc-400 line-through">
+        <span class="label-text text-base md:text-xl text-zinc-400 line-through">
           <%= wish.title %>
         </span>
       <% end %>
@@ -11,7 +11,7 @@
   </div>
   <!-- 作成日 -->
   <div class="date">
-    <div class="ml-3 min-w-40">作成日：<%= l wish.created_at %></div>
-    <div class="text-accent ml-3 min-w-40">達成日：<%= l wish.updated_at %></div>
+    <div class="text-xs md:text-base ml-1 md:ml-3 md:min-w-40">作成日：<%= l wish.created_at %></div>
+    <div class="text-xs md:text-base text-accent ml-1 md:ml-3 md:min-w-40">達成日：<%= l wish.updated_at %></div>
   </div>
 </div>

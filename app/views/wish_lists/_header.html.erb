@@ -1,9 +1,14 @@
-<div class="flex justify-between items-center mt-5 mb-10 h-12" id='list_header'>
-  <!-- タイトル -->
-  <div class="text-xl" id='title'><%= wish_list.title %></div>
-  <!-- ログインユーザーのリストにのみ -->
+<div class="flex justify-between items-start md:items-center mt-5 mb-10 sm:h-16 md:h-12" id='list_header'>
+  <!-- スマホサイズは縦並び -->
+  <div class="flex flex-col md:flex-row gap-1">
+    <!-- タイトル -->
+    <div class="text-base md:text-xl" id='title'><%= wish_list.title %></div>
+    <!-- ログインユーザーのリストにのみ -->
+    <% if logged_in? && current_user.my_list?(wish_list) %>
+      <%= render 'icons', wish_list: wish_list %>
+    <% end %>
+  </div>
   <% if logged_in? && current_user.my_list?(wish_list) %>
-    <%= render 'icons', wish_list: wish_list %>
     <div class="flex ml-auto items-center">
       <%# 公開設定の場合のみ%>
       <% if wish_list.is_public %>
@@ -11,6 +16,6 @@
       <% end %>
       <%# 公開設定ボタン %>
       <%= render 'toggle', wish_list: wish_list %>
-      </div>
+    </div>
   <% end %>
 </div>

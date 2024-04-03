@@ -4,16 +4,16 @@
 
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <div class="my-10">
-    <h1 class="text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-primary text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-primary text-center">
       ログイン
     </h1>
     <%= form_with url: login_path, method: :post do |form| %>
       <!-- メールアドレス入力欄 -->
-      <%= form.label :email, 'メールアドレス', class: "label mb-3 w-1/2 mx-auto" %>
-      <%= form.text_field :email, value: @email, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
+      <%= form.label :email, 'メールアドレス', class: "label mb-3 w-full md:w-1/2 mx-auto" %>
+      <%= form.text_field :email, value: @email, class: "input input-bordered form-control mb-6 w-full md:w-1/2 mx-auto" %>
       <!-- パスワード入力欄 -->
-      <%= form.label :password, 'パスワード', class: "label mb-3 w-1/2 mx-auto" %>
-      <%= form.password_field :password, class: "input input-bordered form-control mb-6 w-1/2 mx-auto" %>
+      <%= form.label :password, 'パスワード', class: "label mb-3 w-full md:w-1/2 mx-auto" %>
+      <%= form.password_field :password, class: "input input-bordered form-control mb-6 w-full md:w-1/2 mx-auto" %>
       <div class="w-1/2 mx-auto flex justify-center text-center">
         <%= form.submit 'ログイン', class: "btn mt-1" %>
       </div>

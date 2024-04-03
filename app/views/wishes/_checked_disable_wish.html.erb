@@ -2,14 +2,14 @@
   <div class="form-control mx-3 basis-5/6">
     <div class="label justify-start">
       <input type="checkbox" class="checkbox mr-3" disabled checked />
-      <span class="label-text text-xl text-zinc-400 line-through">
+      <span class="label-text text-base md:text-xl text-zinc-400 line-through">
         <%= wish.title %>
       </span>
     </div>
   </div>
     <!-- 作成日 -->
   <div class="date">
-    <div class="mr-3 min-w-40">作成日：<%= l wish.created_at %></div>
-    <div class="text-accent mr-3 min-w-40">達成日：<%= l wish.updated_at %></div>
+    <div class="text-xs md:text-base ml-1 md:mr-3 md:min-w-40">作成日：<%= l wish.created_at %></div>
+    <div class="text-accent text-xs md:text-base ml-1 md:mr-3 md:min-w-40">達成日：<%= l wish.updated_at %></div>
   </div>
 </div>
