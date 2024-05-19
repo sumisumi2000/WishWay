@@ -105,3 +105,7 @@ LINE 通知機能（メールと比較して導入するか検討）：[LINE Mes
 | データベース   | PostgreSQL                                          |
 | インフラ       | Render.com                                          |
 | 環境構築       | Docker / docker-compose                             |
+
+## 画面遷移図
+
+Figma: https://www.figma.com/design/IQUIPcJ1QIrySjsy9sx5DF/WishWay?node-id=0%3A1&t=6yFjfdAsLn03NBHY-1
