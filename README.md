@@ -109,3 +109,7 @@ LINE 通知機能（メールと比較して導入するか検討）：[LINE Mes
 ## 画面遷移図
 
 Figma: https://www.figma.com/design/IQUIPcJ1QIrySjsy9sx5DF/WishWay?node-id=0%3A1&t=6yFjfdAsLn03NBHY-1
+
+## ER 図
+
+![](https://i.gyazo.com/979f5cd09cd6c3627d16ee9c5b81a940.png)
