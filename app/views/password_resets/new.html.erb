@@ -1,0 +1,10 @@
+<% content_for :head do %>
+  <title>WishWay｜パスワードリセット申請</title>
+<% end %>
+
+<%= form_with url: password_resets_path, method: :post do |form| %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+
+  <%= form.submit "メールを送信する" %>
+<% end %>

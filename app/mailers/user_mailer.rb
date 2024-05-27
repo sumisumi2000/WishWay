@@ -1,13 +1,9 @@
 class UserMailer < ApplicationMailer
+  default from: 'no-reply@wishway.com'
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.reset_password_email.subject
-  #
   def reset_password_email(user)
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @user = User.find(user.id)
+    @url  = edit_password_reset_url(@user.reset_password_token)
+    mail(to: user.email, subject: "[WishWay]パスワードリセット再設定の案内")
   end
 end
