@@ -20,6 +20,10 @@ class User < ApplicationRecord
   # 50文字以内
   validates :name, presence: true, length: { maximum: 50 }
 
+  # 属性の値が一意であり重複していないようにバリデーションを設定
+  # nil は重複OK
+  validates :reset_password_token, uniqueness: true, allow_nil: true
+
   def my_list?(wish_list)
     wish_list.user_id == self.id
   end
