@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :wishes, only: %i[new create edit update destroy]
   post 'check/:id', to: 'wishes#check', as: :check
   post 'uncheck/:id', to: 'wishes#uncheck', as: :uncheck
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # パスワードリセット
+  resources :password_resets, only: %i[new create edit update]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
