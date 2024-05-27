@@ -1,5 +1,7 @@
 class WishListsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
+  before_action :set_wish_list, only: %i[show]
+  before_action :check_list_visibility, only: %i[show]
 
   def index
     @q = WishList.ransack(params[:q])
@@ -7,31 +9,11 @@ class WishListsController < ApplicationController
   end
 
   def show
-    begin
-      # 新規作成用の Wish を作成
-      @wish = Wish.new
+    # 新規作成用の Wish を作成
+    @wish = Wish.new
 
-      # params からリスト所持者のユーザーを取得し、リストを取得
-      @wish_list = User.find(params[:id]).wish_list
-
-      if !@wish_list.is_public
-        # リストが非公開であっても、自分のリストであれば表示
-        if current_user.my_list?(@wish_list)
-          # リストの Wish を取得
-          @wishes = @wish_list.wishes
-          return
-        end
-        # リストが非公開の場合、一覧ページにリダイレクト
-        redirect_to wish_lists_path, notice: 'このリストは非公開です'
-        return
-      end
-    # 存在しないリストにアクセスした際に、一覧ページへリダイレクト
-    rescue ActiveRecord::RecordNotFound
-      redirect_to wish_lists_path, notice: 'このリストは見つかりませんでした'
-      return
-    end
-  # リストの Wish を取得
-  @wishes = @wish_list.wishes.order('created_at ASC')
+    # リストの Wish を取得
+    @wishes = @wish_list.wishes.order('created_at ASC')
   end
 
   def edit
@@ -85,5 +67,24 @@ class WishListsController < ApplicationController
 
   def wish_list_params
     params.require(:wish_list).permit(:title)
+  end
+
+  def set_wish_list
+    # params からリスト所持者のユーザーを取得し、リストを取得
+    @wish_list = User.find(params[:id]).wish_list
+
+    # 存在しないリストにアクセスした際に、一覧ページへリダイレクト
+  rescue ActiveRecord::RecordNotFound
+    redirect_to wish_lists_path, notice: 'リストは存在しないか、非公開です'
+  end
+
+  def check_list_visibility
+    # リストが公開設定なら閲覧可能
+    return if @wish_list.is_public
+
+    # 非公開かつマイリストでなければ一覧ページへリダイレクト
+    unless current_user&.my_list?(@wish_list)
+      redirect_to wish_lists_path, notice: 'リストは存在しないか、非公開です'
+    end
   end
 end
