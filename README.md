@@ -91,7 +91,7 @@ https://wishway.onrender.com/
 
 ## 機能の実装方針予定
 
-オートコンプリート：[Stimulus Autocomplete](https://github.com/afcapel/stimulus-autocomplete)
+オートコンプリート：[Stimulus Autocomplete](https://github.com/afcapel/stimulus-autocomplete)<br>
 LINE 通知機能（メールと比較して導入するか検討）：[LINE Messaging API SDK for Ruby](https://github.com/line/line-bot-sdk-ruby)
 
 ## 技術構成
@@ -112,4 +112,4 @@ Figma: https://www.figma.com/design/IQUIPcJ1QIrySjsy9sx5DF/WishWay?node-id=0%3A1
 
 ## ER 図
 
-![](https://i.gyazo.com/979f5cd09cd6c3627d16ee9c5b81a940.png)
+![](https://i.gyazo.com/d16f39677fe775661822ba839110c0df.png)
