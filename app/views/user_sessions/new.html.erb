@@ -19,7 +19,8 @@
       </div>
     <% end %>
   </div>
-  <div class="mx-auto text-center">
+  <div class="mx-auto text-center flex flex-col md:flex-row md:justify-center gap-y-3 md:gap-x-5 lg:gap-x-10">
     <%= link_to "新規登録はこちら", new_user_path, class: "link link-neutral"%>
+    <%= link_to "パスワードをお忘れの方はこちら", new_password_reset_path, class: "link link-neutral"%>
   </div>
 </div>

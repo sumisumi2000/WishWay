@@ -1,0 +1,29 @@
+<% content_for :head do %>
+  <title>WishWay｜パスワードリセット</title>
+<% end %>
+
+<div class="w-5/6 mx-auto max-w-screen-xl">
+  <div class="my-10">
+    <h1 class="text-4xl md:text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-stone-400 text-center">
+      パスワード再設定
+    </h1>
+
+    <div class="w-full md:w-2/3 lg:w-1/2 mx-auto">
+      <%# バリデーションエラーメッセージ表示 %>
+      <%= render 'shared/error', object: @user %>
+    </div>
+
+    <%= form_with model: @user, url: password_reset_path(@token) do |form| %>
+
+      <%= form.label :password, 'パスワード', class: "label mb-2 w-full md:w-1/2 mx-auto" %>
+      <%= form.password_field :password, class: "input input-bordered form-control mb-5 w-full md:w-1/2 mx-auto" %>
+
+      <%= form.label :password_confirmation, 'パスワード再入力', class: "label mb-2 w-full md:w-1/2 mx-auto" %>
+      <%= form.password_field :password_confirmation, class: "input input-bordered form-control mb-5 w-full md:w-1/2 mx-auto" %>
+
+      <div class="w-1/2 mx-auto flex justify-center text-center">
+        <%= form.submit '再設定', class: "btn mt-1" %>
+      </div>
+    <% end %>
+  </div>
+</div>

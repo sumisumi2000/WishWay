@@ -58,6 +58,7 @@ group :development do
   gem "web-console"
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'letter_opener_web', '~> 3.0'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
