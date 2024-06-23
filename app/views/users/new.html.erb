@@ -38,5 +38,6 @@
   <%# ログインページへのリンク %>
   <div class="mx-auto text-center">
     <%= link_to "ログインページへ", login_path, class: "link link-neutral"%>
+    <%= link_to "Google ログイン", auth_at_provider_path(provider: :google) %>
   </div>
 </div>

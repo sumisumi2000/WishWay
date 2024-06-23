@@ -28,15 +28,17 @@ class OauthsController < ApplicationController
       else
         # ユーザーを新規作成
         @user = create_from(provider)
+        # ユーザーの WishList を作成
+        @user.create_wish_list!(title: "#{@user.name}のバケットリスト")
       end
 
       reset_session
       auto_login(@user)
     end
 
-    redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
+    redirect_to root_path, notice: "Googleアカウントでログインしました"
   rescue StandardError
-    redirect_to root_path, :alert => "Failed to login from #{provider.titleize}!"
+    redirect_to root_path, alert: "Google 認証に失敗しました"
   end
 
   private
