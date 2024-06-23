@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+=begin
 100.times do |n|
   User.create!(
     name: "seedテスト#{n + 1}",
@@ -19,4 +20,9 @@ end
 
 User.all.each do |user|
   user.create_wish_list!(title: "#{user.name}のバケットリスト")
+end
+=end
+
+User.all.each do |user|
+  user.create_notification(is_required: false)
 end
