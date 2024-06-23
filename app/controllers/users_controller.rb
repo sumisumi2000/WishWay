@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(current_user.id)
+  end
+
   private
 
   # Only allow a list of trusted parameters through
