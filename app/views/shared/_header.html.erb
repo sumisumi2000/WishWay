@@ -32,7 +32,7 @@
               <%= link_to 'お気に入り', '#' %>
             </li>
             <li>
-              <%= link_to '設定', '#' %>
+              <%= link_to '設定', user_path(current_user.id) %>
             </li>
             <li>
               <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
