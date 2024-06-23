@@ -2,6 +2,9 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_one :wish_list, dependent: :destroy
+  # Google 認証
+  has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
 
   # 新しいデータもしくは crypted_password が変更された場合
   # 最低3文字のバリデーションを設定
