@@ -1,0 +1,6 @@
+  <%= form_with model: current_user.notification, url: notification_path(current_user), id: 'is_required_form' do |form| %>
+  <%= form.label :is_required, '通知の有無' %>
+  <%= form.radio_button :is_required, true %>必要
+  <%= form.radio_button :is_required, false %>不要
+  <%= form.submit '保存する', class: "btn" %>
+<% end %>

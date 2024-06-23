@@ -1,0 +1,4 @@
+<div id="is_required_field">
+  <%= current_user.notification.is_required %>
+  <%= link_to '編集する', edit_notification_path, data: { turbo_stream: true } %>
+</div>
