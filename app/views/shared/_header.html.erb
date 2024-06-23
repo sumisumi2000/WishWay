@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="flex-none w-2/3 ml-auto">
-    <ul class="menu menu-horizontal text-xs md:text-base md:px-1 ml-auto">
+    <ul class="menu menu-horizontal text-xs md:text-base md:px-1 ml-auto items-center">
       <li>
         <%= link_to '一覧ページ', wish_lists_path, class: "px-1 md:px-3" %>
       </li>
@@ -13,7 +13,32 @@
         <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id), class: "px-1 md:px-3" %>
       </li>
       <li>
-        <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: "px-1 md:px-3" %>
+        <details>
+          <summary class="px-1 md:px-3 relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block h-5 w-5 stroke-current">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </summary>
+          <ul class="z-10 absolute right-0 w-28 md:w-32">
+            <li>
+              <%= link_to 'お気に入り', '#' %>
+            </li>
+            <li>
+              <%= link_to '設定', '#' %>
+            </li>
+            <li>
+              <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
+            </li>
+          </ul>
+        </details>
       </li>
     </ul>
   </div>
