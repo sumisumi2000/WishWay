@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="w-5/6 mx-auto max-w-screen-xl">
-  <div class="my-10">
+  <div class="mt-10 mb-5">
     <h1 class="text-4xl md:text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-secondary text-center">
       新規登録
     </h1>
@@ -35,8 +35,16 @@
       </div>
     <% end %>
   </div>
+  <%# Google 認証リンク %>
+  <div class="text-center text-sm">
+    OR
+  <div>
+  <!-- Google ログイン -->
+  <%= link_to auth_at_provider_path(provider: :google) do %>
+    <%= image_tag "google_sign_up.png", class: "w-2/3 md:w-1/3 lg:w-1/4 xl:w-1/6 mx-auto py-5" %>
+  <% end %>
   <%# ログインページへのリンク %>
   <div class="mx-auto text-center">
-    <%= link_to "ログインページへ", login_path, class: "link link-neutral"%>
+    <%= link_to "ログインページへ", login_path, class: "link link-neutral text-base md:text-xl"%>
   </div>
 </div>
