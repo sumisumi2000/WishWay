@@ -86,6 +86,3 @@ gem 'ransack'
 
 # kaminari
 gem 'kaminari'
-
-# 環境変数用
-gem 'dotenv-rails'
