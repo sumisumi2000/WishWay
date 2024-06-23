@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'staticpages#top'
   # ユーザー
-  resources :users, only: %i[new create show]
+  resources :users, only: %i[new create show update]
   # ログイン
   get 'login', to: 'user_sessions#new', as: :login
   post 'login', to: "user_sessions#create"
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback"
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
+  # 通知
+  resources :notifications, only: %i[update]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
