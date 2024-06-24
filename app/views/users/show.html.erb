@@ -1,3 +1,40 @@
-<%= current_user.name %>
+<% content_for :head do %>
+  <title>WishWay｜設定</title>
+<% end %>
 
-<%= render 'notifications/is_required_field'%>
+<div class="w-5/6 mx-auto max-w-screen-xl">
+  <div class="my-10">
+    <h1 class="text-4xl md:text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-stone-400 text-center">
+      設定
+    </h1>
+    <div class="mb-3">
+      <p class="text-base mb-2">ユーザーネーム</p>
+      <div class="bg-base-200 rounded p-2">
+        <p class="text-sm"><%= current_user.name %></p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <p class="text-base mb-2">メールアドレス</p>
+      <div class="bg-base-200 rounded p-2">
+        <p class="text-sm"><%= current_user.email %></p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="flex items-center mb-2">
+        <p class="text-base mr-1">通知機能</p>
+        <i class="fa-regular fa-circle-question text-xl cursor-pointer" onclick="tip_modal.showModal()"></i>
+        <dialog id="tip_modal" class="modal w-screen h-screen">
+          <div class="modal-box w-5/6 max-w-3xl">
+            <h3 class="font-bold test-base md:text-lg">通知機能について</h3><br>
+            <p>ON にすると毎月メールが送信されます。</p>
+            <p>定期的にリストを見直すきっかけを提供いたします。</p>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </div>
+      <%= render 'notifications/is_required_field'%>
+    </div>
+  </div>
+</div>
