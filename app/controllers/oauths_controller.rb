@@ -30,6 +30,8 @@ class OauthsController < ApplicationController
         @user = create_from(provider)
         # ユーザーの WishList を作成
         @user.create_wish_list!(title: "#{@user.name}のバケットリスト")
+        # ユーザーの通知データを作成
+        @user.create_notification!(is_required: false)
       end
 
       reset_session

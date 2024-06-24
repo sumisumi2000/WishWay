@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     if @user.save
       # ユーザーの WishList を作成
       @user.create_wish_list!(title: "#{@user.name}のバケットリスト")
+      # ユーザーの通知データを作成
+      @user.create_notification!(is_required: false)
       # ログイン状態に移行
       auto_login(@user)
       # マイリストページに遷移
