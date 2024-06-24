@@ -9,6 +9,9 @@ class User < ApplicationRecord
   # 通知用のテーブル
   has_one :notification, dependent: :destroy
 
+  # 通知が必要なユーザーを取得するスコープ
+  scope :required_notification, -> { joins(:notification).where(notification: { is_required: true }) }
+
   # 新しいデータもしくは crypted_password が変更された場合
   # 最低3文字のバリデーションを設定
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
