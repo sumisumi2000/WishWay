@@ -1,7 +1,7 @@
 <div class="">
   <% @wish_lists.each do |wish_list| %>
     <%= link_to wish_list_path(wish_list.user) do %>
-      <li role="option" data-autocomplete-value="<%= wish_list.title %>" class="px-1 py-2 text-sm md:text-base hover:bg-zinc-300 hover:rounded"><%= wish_list.title %></li>
+      <li role="option" data-autocomplete-value="<%= wish_list.title %>" class="px-1 py-2 text-sm md:text-base xl:text-lg hover:bg-zinc-300 hover:rounded"><%= wish_list.title %></li>
     <% end %>
   <% end %>
 </div>
