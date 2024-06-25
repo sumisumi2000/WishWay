@@ -1,3 +1,5 @@
-<% @wish_lists.each do |wish_list| %>
-  <li role="option" data-autocomplete-value="<%= wish_list.id %>" data-autocomplete-label="<%= wish_list.title %>"><%= wish_list.title %></li>
-<% end %>
+<div class="">
+  <% @wish_lists.each do |wish_list| %>
+    <li role="option" data-autocomplete-value="<%= wish_list.title %>" class="px-1 py-2 text-sm md:text-base hover:bg-zinc-300 hover:rounded"><%= wish_list.title %></li>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 <%= search_form_for @q, class: "mb-4 flex" do |form| %>
   <div data-controller="autocomplete" data-autocomplete-url-value="/wish_lists/search" role="combobox" class="grow-0 md:grow mr-2">
     <%= form.search_field :title_cont, data: { autocomplete_target: 'input' }, placeholder: 'タイトルで検索', class: "input input-bordered form-control text-xs md:text-xl w-full" %>
-    <ul class="list-group" data-autocomplete-target="results"></ul>
+    <ul class="list-group absolute mt-1 ml-1 p-1 z-10 bg-base-100 rounded-lg shadow-inner" data-autocomplete-target="results"></ul>
   </div>
   <%= form.submit class: "btn" %>
 <% end %>
