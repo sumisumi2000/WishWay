@@ -65,7 +65,7 @@ class WishListsController < ApplicationController
 
   def search
     # 入力単語がタイトルに含まれるリストを取得
-    @wish_lists = WishList.where("title like ?", "%#{params[:q]}%")
+    @wish_lists = WishList.where("title like ?", "%#{params[:q]}%").limit(15).order(title: :desc)
     render partial: 'search_result'
   end
 
