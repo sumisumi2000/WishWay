@@ -1,5 +1,5 @@
 class WishListsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show search]
   before_action :set_wish_list, only: %i[show]
   before_action :check_list_visibility, only: %i[show]
 
