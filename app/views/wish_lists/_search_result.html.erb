@@ -1,0 +1,3 @@
+<% @wish_lists.each do |wish_list| %>
+  <li role="option" data-autocomplete-value="<%= wish_list.id %>" data-autocomplete-label="<%= wish_list.title %>"><%= wish_list.title %></li>
+<% end %>
