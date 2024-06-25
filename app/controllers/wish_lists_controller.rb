@@ -1,5 +1,5 @@
 class WishListsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show search]
   before_action :set_wish_list, only: %i[show]
   before_action :check_list_visibility, only: %i[show]
 
@@ -61,6 +61,12 @@ class WishListsController < ApplicationController
     @wish_list.is_public = true
     # データベースに保存
     @wish_list.save!
+  end
+
+  def search
+    # 入力単語がタイトルに含まれるリストを取得
+    @wish_lists = WishList.where("title like ?", "%#{params[:q]}%").limit(15).order(title: :desc)
+    render partial: 'search_result'
   end
 
   private
