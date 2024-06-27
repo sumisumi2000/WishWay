@@ -3,4 +3,4 @@
 <%# アイコンを追加済みのものに置き換え %>
 <%= turbo_stream.replace "check_#{@wish.id}", partial: "wishes/checked_icon" %>
 <%# フラッシュメッセージを更新 %>
-<%= turbo_stream.update "flash", partial: "shared/flash" %>
+<%= turbo_stream_flash %>

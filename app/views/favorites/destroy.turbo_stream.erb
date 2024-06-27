@@ -1,2 +1,4 @@
+<%# アイコンをお気に入り前のものに切り替え %>
 <%= turbo_stream.replace "favorite_#{@wish_list.id}", partial: "favorites/heart_icon", locals: { wish_list: @wish_list } %>
-<%= turbo_stream.update "flash", partial: "shared/flash" %>
+<%# フラッシュメッセージを更新 %>
+<%= turbo_stream_flash %>
