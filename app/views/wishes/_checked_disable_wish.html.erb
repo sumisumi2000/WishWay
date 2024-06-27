@@ -1,5 +1,5 @@
-<div class="bg-base-200 py-5 flex justify-between items-center rounded-box">
-  <div class="form-control mx-3 basis-5/6">
+<div class="bg-base-200 px-2 py-5 flex justify-between items-center rounded-box">
+  <div class="form-control basis-5/6">
     <div class="label justify-start">
       <input type="checkbox" class="checkbox mr-3" disabled checked />
       <span class="label-text text-base md:text-xl text-zinc-400 line-through">
@@ -8,8 +8,9 @@
     </div>
   </div>
     <!-- 作成日 -->
-  <div class="date">
-    <div class="text-xs md:text-base ml-1 md:mr-3 md:min-w-40">作成日：<%= l wish.created_at %></div>
-    <div class="text-accent text-xs md:text-base ml-1 md:mr-3 md:min-w-40">達成日：<%= l wish.updated_at %></div>
+  <div class="date ml-1 md:mr-3">
+    <div class="text-xs md:text-base md:min-w-40">作成日：<%= l wish.created_at %></div>
+    <div class="text-accent text-xs md:text-base md:min-w-40">達成日：<%= l wish.updated_at %></div>
   </div>
+  <%= render 'wishes/add_icon', wish: wish %>
 </div>

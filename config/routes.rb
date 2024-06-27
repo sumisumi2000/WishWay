@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :wishes, only: %i[new create edit update destroy]
   post 'check/:id', to: 'wishes#check', as: :check
   post 'uncheck/:id', to: 'wishes#uncheck', as: :uncheck
+  get 'wishes/:id', to: 'wishes#add', as: :add
   # パスワードリセット
   resources :password_resets, only: %i[new create edit update]
   # Google 認証

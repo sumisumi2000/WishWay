@@ -1,0 +1,25 @@
+<% if logged_in? && current_user.included_my_list?(wish) %>
+  <div class="tooltip" data-tip="マイリストに追加済み">
+    <i class="fa-solid fa-circle-check mx-1 md:mx-3 text-xl md:text-3xl"></i>
+  </div>
+<% else %>
+  <div class="tooltip" data-tip="マイリストに追加する">
+    <i class="fa-regular fa-circle-check mx-1 md:mx-3 text-xl md:text-3xl cursor-pointer" onclick= <%= "my_modal_#{wish.id}.showModal()" %>></i>
+  </div>
+  <%# モーダル部分 %>
+  <dialog id= <%= "my_modal_#{wish.id}" %> class="modal">
+    <div class="modal-box w-5/6" id=<%= "modal_body_#{wish.id}" %>>
+      <p class="py-4 text-base md:text-xl"><%= "「#{wish.title}」をマイリストに追加しますか？"%></p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn btn-outline btn-sm md:btn-md">キャンセル</button>
+        </form>
+        <%# 削除へのリンク %>
+        <%= link_to add_path(wish) do %>
+          <button class="btn btn-outline btn-accent btn-sm md:btn-md">追加</button>
+        <% end %>
+      </div>
+    </div>
+  </dialog>
+<% end %>

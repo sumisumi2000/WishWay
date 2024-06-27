@@ -40,4 +40,9 @@ class User < ApplicationRecord
   def my_wish?(wish)
     wish.wish_list.user.id == self.id
   end
+
+  def included_my_list?(wish)
+    wishes = self.wish_list.wishes
+    wishes.pluck(:title).include?(wish.title)
+  end
 end
