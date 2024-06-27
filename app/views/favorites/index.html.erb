@@ -1,13 +1,13 @@
 <% content_for :head do %>
-  <title>WishWay｜リスト一覧</title>
+  <title>WishWay｜お気に入り一覧</title>
 <% end %>
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <h1 class="text-4xl md:text-5xl font-bold mb-10 pb-4 border-b-4 border-dashed border-accent text-center">
-    みんなのバケットリスト
+    <%= current_user.name %>のお気に入りリスト
   </h1>
 
   <%# 検索フォーム %>
-  <%= render 'shared/search_form', form_url: wish_lists_path, autocomplete_url: "/wish_lists/search" %>
+  <%= render 'shared/search_form', form_url: favorites_path, autocomplete_url: "/favorites/search" %>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4">
     <%= render(@wish_lists) %>
