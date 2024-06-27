@@ -54,7 +54,9 @@
       <div class="flex flex-col md:flex-none w-full">
         <div class="my-5">
         <!-- フラッシュメッセージの表示 -->
-        <%= render "shared/flash" %>
+        <div id="flash">
+          <%= render "shared/flash" %>
+        </div>
         <%= yield %>
         </div>
       </div>
