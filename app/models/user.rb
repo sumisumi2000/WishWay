@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :notification, dependent: :destroy
   # お気に入り
   has_many :favorites
-  has_many :favorite_wish_list, through: :favorites, source: :wish_list, dependent: :destroy
+  has_many :favorite_wish_lists, through: :favorites, source: :wish_list, dependent: :destroy
 
   # 通知が必要なユーザーを取得するスコープ
   scope :required_notification, -> { joins(:notification).where(notification: { is_required: true }) }
@@ -35,16 +35,34 @@ class User < ApplicationRecord
   # nil は重複OK
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
+  # 引数のリストが自分のリストかどうか
   def my_list?(wish_list)
     wish_list.user_id == self.id
   end
 
+  # 引数の wish が自分の wish かどうか
   def my_wish?(wish)
     wish.wish_list.user.id == self.id
   end
 
+  # 引数の wish のタイトルと同じタイトルの wish が自分のリストにあるかどうか
   def included_my_list?(wish)
     wishes = self.wish_list.wishes
     wishes.pluck(:title).include?(wish.title)
+  end
+
+  # 引数のリストがユーザーのお気に入りかどうかを判定
+  def favorite?(wish_list)
+    wish_list.favorites.pluck(:user_id).include?(self.id)
+  end
+
+  # 引数のリストをお気に入りに追加
+  def make_favorite(wish_list)
+    favorite_wish_lists << wish_list
+  end
+
+  # 引数のリストをお気に入りから削除
+  def delete_favorite(wish_list)
+    favorite_wish_lists.delete(wish_list)
   end
 end
