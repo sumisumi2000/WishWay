@@ -3,11 +3,13 @@ class User < ApplicationRecord
 
   has_one :wish_list, dependent: :destroy
   # Google 認証
-  has_many :authentications, :dependent => :destroy
+  has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
-
   # 通知用のテーブル
   has_one :notification, dependent: :destroy
+  # お気に入り
+  has_many :favorites
+  has_many :favorite_wish_list, through: :favorites, source: :wish_list, dependent: :destroy
 
   # 通知が必要なユーザーを取得するスコープ
   scope :required_notification, -> { joins(:notification).where(notification: { is_required: true }) }
