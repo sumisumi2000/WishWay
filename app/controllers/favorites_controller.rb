@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def index
     @q = current_user.favorite_wish_lists.ransack(params[:q])
-    @wish_lists = @q.result(distinct: true).includes(:user).where(is_public: true).order('created_at DESC').page(params[:page])
+    @wish_lists = @q.result(distinct: true).includes(:user).where(is_public: true).joins(:favorites).order('favorites.created_at DESC').page(params[:page])
   end
 
   def create
