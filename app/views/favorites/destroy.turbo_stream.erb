@@ -2,3 +2,7 @@
 <%= turbo_stream.replace "favorite_#{@wish_list.id}", partial: "favorites/heart_icon", locals: { wish_list: @wish_list } %>
 <%# フラッシュメッセージを更新 %>
 <%= turbo_stream_flash %>
+
+<% if favorites_page? %>
+  <%= turbo_stream.remove "wish_list_#{@wish_list.id}" %>
+<% end %>
