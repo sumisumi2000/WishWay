@@ -1,4 +1,4 @@
-<% if current_user.included_my_list?(wish) %>
+<% if logged_in? && current_user.included_my_list?(wish) %>
   <div class="tooltip" data-tip="マイリストに追加済み">
     <i class="fa-solid fa-circle-check mx-1 md:mx-3 text-xl md:text-3xl"></i>
   </div>
@@ -8,7 +8,7 @@
   </div>
   <%# モーダル部分 %>
   <dialog id= <%= "my_modal_#{wish.id}" %> class="modal">
-    <div class="modal-box w-5/6">
+    <div class="modal-box w-5/6" id=<%= "modal_body_#{wish.id}" %>>
       <p class="py-4 text-base md:text-xl"><%= "「#{wish.title}」をマイリストに追加しますか？"%></p>
       <div class="modal-action">
         <form method="dialog">
