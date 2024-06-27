@@ -1,3 +1,6 @@
+<%# モーダルを取り除く %>
 <%= turbo_stream.remove "my_modal_#{@wish.id}" %>
+<%# アイコンを追加済みのものに置き換え %>
 <%= turbo_stream.replace "check_#{@wish.id}", partial: "wishes/checked_icon" %>
+<%# フラッシュメッセージを更新 %>
 <%= turbo_stream.update "flash", partial: "shared/flash" %>
