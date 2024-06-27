@@ -1,4 +1,4 @@
-<% if logged_in? && current_user.favorite?(wish_list) %>
+<% if current_user&.favorite?(wish_list) %>
   <%= render 'favorites/filled_heart_icon', wish_list: wish_list %>
 <% else %>
   <%= render 'favorites/heart_icon', wish_list: wish_list %>

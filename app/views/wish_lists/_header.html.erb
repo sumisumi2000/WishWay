@@ -4,7 +4,7 @@
     <!-- タイトル -->
     <div class="text-base md:text-xl" id='title'><%= wish_list.title %></div>
     <!-- ログインユーザーのマイリストにのみ -->
-    <% if logged_in? && current_user.my_list?(wish_list) %>
+    <% if current_user&.my_list?(wish_list) %>
       <%= render 'icons', wish_list: wish_list %>
     <% end %>
     <%# マイリスト以外のリスト詳細ページ %>
@@ -12,7 +12,7 @@
       <%= render 'favorites/favorite_icon', wish_list: wish_list %>
     <% end %>
   </div>
-  <% if logged_in? && current_user.my_list?(wish_list) %>
+  <% if current_user&.my_list?(wish_list) %>
     <div class="flex ml-auto items-center">
       <%# 公開設定の場合のみ%>
       <% if wish_list.is_public %>
