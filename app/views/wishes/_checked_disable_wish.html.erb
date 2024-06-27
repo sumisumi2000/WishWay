@@ -12,7 +12,5 @@
     <div class="text-xs md:text-base md:min-w-40">作成日：<%= l wish.created_at %></div>
     <div class="text-accent text-xs md:text-base md:min-w-40">達成日：<%= l wish.updated_at %></div>
   </div>
-  <div class="tooltip" data-tip="マイリストに追加済み">
-    <i class="fa-solid fa-circle-check mx-1 md:mx-3 text-xl md:text-3xl"></i>
-  </div>
+  <%= render 'wishes/add_icon', wish: wish %>
 </div>
