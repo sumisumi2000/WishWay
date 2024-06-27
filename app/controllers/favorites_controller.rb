@@ -6,5 +6,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    @wish_list = WishList.find(params[:id])
+    current_user.delete_favorite(@wish_list)
+    flash.now[notice] = 'リストをお気に入りから削除しました'
   end
 end

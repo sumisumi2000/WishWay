@@ -1,0 +1,2 @@
+<%= turbo_stream.replace "favorite_#{@wish_list.id}", partial: "favorites/heart_icon", locals: { wish_list: @wish_list } %>
+<%= turbo_stream.update "flash", partial: "shared/flash" %>
