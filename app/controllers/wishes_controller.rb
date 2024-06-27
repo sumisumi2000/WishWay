@@ -81,6 +81,8 @@ class WishesController < ApplicationController
     @wish = Wish.find(params[:id])
     # ログインユーザーの wish として新規作成
     current_user.wish_list.wishes.create!(title: @wish.title)
+    # フラッシュメッセージを登録
+    flash.now[:notice] = "マイリストに Wish を作成しました"
   end
 
   private

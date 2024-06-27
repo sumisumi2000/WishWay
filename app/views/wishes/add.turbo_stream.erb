@@ -1,2 +1,3 @@
 <%= turbo_stream.remove "my_modal_#{@wish.id}" %>
 <%= turbo_stream.replace "check_#{@wish.id}", partial: "wishes/checked_icon" %>
+<%= turbo_stream.update "flash", partial: "shared/flash" %>
