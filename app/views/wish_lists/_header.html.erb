@@ -1,14 +1,18 @@
-<div class="flex justify-between items-start md:items-center mt-5 mb-10 sm:h-16 md:h-12" id='list_header'>
+<div class="flex justify-between items-start md:items-center mt-5 mb-5 md:mb-10 sm:h-16 md:h-12" id='list_header'>
   <!-- スマホサイズは縦並び -->
-  <div class="flex flex-col md:flex-row gap-1">
+  <div class="flex flex-col md:flex-row gap-2">
     <!-- タイトル -->
     <div class="text-base md:text-xl" id='title'><%= wish_list.title %></div>
-    <!-- ログインユーザーのリストにのみ -->
-    <% if logged_in? && current_user.my_list?(wish_list) %>
+    <!-- ログインユーザーのマイリストにのみ -->
+    <% if current_user&.my_list?(wish_list) %>
       <%= render 'icons', wish_list: wish_list %>
     <% end %>
+    <%# マイリスト以外のリスト詳細ページ %>
+    <% unless current_user&.my_list?(wish_list)%>
+      <%= render 'favorites/favorite_icon', wish_list: wish_list %>
+    <% end %>
   </div>
-  <% if logged_in? && current_user.my_list?(wish_list) %>
+  <% if current_user&.my_list?(wish_list) %>
     <div class="flex ml-auto items-center">
       <%# 公開設定の場合のみ%>
       <% if wish_list.is_public %>

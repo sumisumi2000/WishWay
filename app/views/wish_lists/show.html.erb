@@ -7,7 +7,7 @@
     <%= render 'back' %>
     <div class="ml-auto" id='over_header'>
       <%# 公開設定の場合のみ%>
-      <% if logged_in? && current_user.my_list?(@wish_list) %>
+      <% if current_user&.my_list?(@wish_list) %>
         <% if @wish_list.is_public %>
           <%= render 'wish_lists/public_introduction' %>
         <%# 非公開時 %>
@@ -21,7 +21,7 @@
   <%= render 'header', wish_list: @wish_list %>
 
   <!-- ログインユーザーのリストにのみ新規作成欄を表示 -->
-  <% if logged_in? && current_user.my_list?(@wish_list) %>
+  <% if current_user&.my_list?(@wish_list) %>
     <%= render 'wishes/new', wish: @wish %>
   <% end %>
 

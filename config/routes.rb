@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy', as: :logout
   # WishList
   resources :wish_lists, only: %i[show index edit update destroy] do
+    resources :favorites, only: %i[create destroy], shallow: true
+    get :search, on: :collection
+  end
+  resources :favorites, only: %i[index] do
     get :search, on: :collection
   end
   post 'lock', to: 'wish_lists#lock'

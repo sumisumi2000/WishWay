@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_23_161242) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_27_110824) do
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider", null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_23_161242) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "wish_list_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "wish_list_id"], name: "index_favorites_on_user_id_and_wish_list_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["wish_list_id"], name: "index_favorites_on_wish_list_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -61,6 +71,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_23_161242) do
     t.index ["wish_list_id"], name: "index_wishes_on_wish_list_id"
   end
 
+  add_foreign_key "favorites", "users"
+  add_foreign_key "favorites", "wish_lists"
   add_foreign_key "notifications", "users"
   add_foreign_key "wish_lists", "users"
   add_foreign_key "wishes", "wish_lists"
