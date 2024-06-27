@@ -76,6 +76,14 @@ class WishesController < ApplicationController
     @wish.save!
   end
 
+  def add
+    # params から wish を取得
+    wish = Wish.find(params[:id])
+    # ログインユーザーの wish として新規作成
+    current_user.wish_list.wishes.create!(title: wish.title)
+    redirect_to root_path
+  end
+
   private
 
   def wish_params

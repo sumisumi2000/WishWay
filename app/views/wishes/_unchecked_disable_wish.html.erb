@@ -22,7 +22,7 @@
           <button class="btn btn-outline btn-sm md:btn-md">キャンセル</button>
         </form>
         <%# 削除へのリンク %>
-        <%= link_to root_path, data: { turbo_stream: true } do %>
+        <%= link_to add_path(wish), data: { turbo_stream: true } do %>
           <button class="btn btn-outline btn-accent btn-sm md:btn-md">追加</button>
         <% end %>
       </div>
