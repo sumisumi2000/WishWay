@@ -3,8 +3,12 @@
 <% end %>
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <div class="flex justify-between items-center">
-    <%# 一覧ページへ戻るアイコン %>
-    <%= render 'back' %>
+    <div class="flex flex-row items-center gap-1">
+      <div class="radial-progress text-primary flex flex-col items-center" style="--value:<%= rand(100) %>; --size:5rem; --thickness:5px;" role="progressbar">
+        <div class="text-xs">達成率</div>
+        <div class="text-lg md:text-xl">90%</div>
+      </div>
+    </div>
     <div class="ml-auto" id='over_header'>
       <%# 公開設定の場合のみ%>
       <% if current_user&.my_list?(@wish_list) %>
