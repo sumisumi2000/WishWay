@@ -1,1 +1,3 @@
 <%= turbo_stream.replace "wish_#{@wish.id}", partial: 'checked_wish_title', locals: {wish: @wish} %>
+<%# グラフ更新 %>
+<%= turbo_stream_graph %>

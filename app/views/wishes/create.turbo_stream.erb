@@ -13,3 +13,5 @@
   <%# 末尾に作成した Wish を追加 %>
   <%= turbo_stream.append 'wishes', partial: 'unchecked_wish', locals: { wish: @wish } %>
 <% end %>
+<%# グラフ更新 %>
+<%= turbo_stream_graph %>

@@ -6,9 +6,8 @@
     <!-- ログインユーザーのマイリストにのみ -->
     <% if current_user&.my_list?(wish_list) %>
       <%= render 'icons', wish_list: wish_list %>
-    <% end %>
-    <%# マイリスト以外のリスト詳細ページ %>
-    <% unless current_user&.my_list?(wish_list)%>
+    <%# マイリスト以外のリスト詳細ページにお気に入りアイコン %>
+    <% else %>
       <%= render 'favorites/favorite_icon', wish_list: wish_list %>
     <% end %>
   </div>

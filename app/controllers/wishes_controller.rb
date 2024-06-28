@@ -1,18 +1,13 @@
 class WishesController < ApplicationController
   def create
+    # ログインユーザーの WishList を取得
+    @wish_list = current_user.wish_list
     # ログインユーザーの WishList に Wish を作成
-    @wish = current_user.wish_list.wishes.build(wish_params)
-
-    @wish.save
-
-    # if wish.save
-    #   # マイリストページに遷移
-    #   redirect_to wish_list_path(current_user.id), notice: 'Wish を作成しました'
-    # else
-    #   flash.now[:alert] = "Wish が作成できませんでした"
-    #   # 新規登録ページを再表示
-    #   render :new, status: :unprocessable_entity
-    # end
+    @wish = @wish_list.wishes.build(wish_params)
+    # データベースに保存
+    @wish.save!
+    # 達成状況を更新
+    @wish_list.update_granted_wish_rate
   end
 
   def edit
@@ -37,50 +32,56 @@ class WishesController < ApplicationController
 
     # ログインユーザーの全ての Wish を取得
     @wishes = current_user.wish_list.wishes
-    # if @wish.update(wish_params)
-    #   redirect_to wish_list_path(@wish.wish_list.user), notice: 'Wish を更新しました'
-    # else
-    #   # 変更前の値に戻す
-    #   @wish.update(@wish.attributes_in_database)
-    #   flash.now[:alert] = 'Wish の更新に失敗しました'
-    #   render :edit, status: :unprocessable_entity
-    # end
   end
 
   def destroy
+    # ログインユーザーの WishList を取得
+    @wish_list = current_user.wish_list
     # ログインユーザーの Wish を全て取得
-    @wishes = current_user.wish_list.wishes
+    @wishes = @wish_list.wishes
     # 削除する Wish をログインユーザーから取得
     @wish = @wishes.find(params[:id])
     # 削除
     @wish.destroy!
-    # 削除後、掲示板一覧ページにリダイレクト
-    # redirect_to wish_list_path(wish.wish_list.user), notice: 'Wish を削除しました', status: :see_other
+    # 達成状況を更新
+    @wish_list.update_granted_wish_rate
   end
 
   def check
+    # ログインユーザーの WishList を取得
+    @wish_list = current_user.wish_list
     # チェックされたWish をログインユーザーから取得
-    @wish = current_user.wish_list.wishes.find(params[:id])
+    @wish = @wish_list.wishes.find(params[:id])
     # チェックする
     @wish.granted = true
     # データベースに保存
     @wish.save!
+    # 達成状況を更新
+    @wish_list.update_granted_wish_rate
   end
 
   def uncheck
+    # ログインユーザーの WishList を取得
+    @wish_list = current_user.wish_list
     # チェックされたWish をログインユーザーから取得
-    @wish = current_user.wish_list.wishes.find(params[:id])
+    @wish = @wish_list.wishes.find(params[:id])
     # チェックを外す
     @wish.granted = false
     # データベースに保存
     @wish.save!
+    # 達成状況を更新
+    @wish_list.update_granted_wish_rate
   end
 
   def add
+    # ログインユーザーの WishList を取得
+    @wish_list = current_user.wish_list
     # params から wish を取得
     @wish = Wish.find(params[:id])
     # ログインユーザーの wish として新規作成
-    current_user.wish_list.wishes.create!(title: @wish.title)
+    @wish_list.wishes.create!(title: @wish.title)
+    # 達成状況を更新
+    @wish_list.update_granted_wish_rate
     # フラッシュメッセージを登録
     flash.now[:notice] = "マイリストに Wish を作成しました"
   end

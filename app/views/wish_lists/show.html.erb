@@ -3,8 +3,10 @@
 <% end %>
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <div class="flex justify-between items-center">
-    <%# 一覧ページへ戻るアイコン %>
-    <%= render 'back' %>
+    <%# リストの達成度 %>
+    <div id="graph">
+      <%= render 'wish_lists/graph', wish_list: @wish_list %>
+    </div>
     <div class="ml-auto" id='over_header'>
       <%# 公開設定の場合のみ%>
       <% if current_user&.my_list?(@wish_list) %>

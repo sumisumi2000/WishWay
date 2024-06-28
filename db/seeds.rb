@@ -21,8 +21,12 @@ end
 User.all.each do |user|
   user.create_wish_list!(title: "#{user.name}のバケットリスト")
 end
-=end
 
 User.all.each do |user|
   user.create_notification(is_required: false)
+end
+=end
+
+WishList.all.each do |wish_list|
+  wish_list.update_granted_wish_rate
 end

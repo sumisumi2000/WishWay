@@ -3,8 +3,12 @@
     <%= link_to wish_list_path(wish_list.user.id) do %>
       <h2 class="card-title text-base md:text-lg lg:text-xl h-full"><%= wish_list.title %></h2>
     <% end %>
-    <div class="card-actions justify-end mb-0">
-      <%= render 'favorites/favorite_icon', wish_list: wish_list %>
+    <div class="flex items-center justify-between">
+      <% class_name = "progress #{wish_list.is_primary? ? "progress-primary" : wish_list.is_secondary? ? "progress-secondary" : "progress-accent"} w-5/6" %>
+      <progress class="<%= class_name %>" value=<%= "#{wish_list.granted_wish_rate}" %> max="100"></progress>
+      <div class="card-actions justify-end mb-0">
+        <%= render 'favorites/favorite_icon', wish_list: wish_list %>
+      </div>
     </div>
   </div>
 </div>
