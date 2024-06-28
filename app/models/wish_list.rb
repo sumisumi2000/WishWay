@@ -13,4 +13,16 @@ class WishList < ApplicationRecord
     ["title"]
   end
 
+  # granted_wish_rate を計算する
+  def calc_granted_wish_rate
+    # リストの wish の数を取得
+    wishes_count = wishes.count
+    # wish が 0 なら 0 を返す
+    return 0 if wishes.count.zero?
+    # 達成している wish の数を取得
+    granted_count = wishes.where(granted: true).size
+    # 計算
+    (granted_count / wishes_count.to_f * 100).to_i
+  end
+
 end
