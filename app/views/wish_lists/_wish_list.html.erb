@@ -4,6 +4,7 @@
       <h2 class="card-title text-base md:text-lg lg:text-xl h-full"><%= wish_list.title %></h2>
     <% end %>
     <div class="flex items-center justify-between">
+      <div class="hidden progress-primary progress-secondary progress-accent"></div>
       <% class_name = "progress progress-#{wish_list.rate_color} w-5/6" %>
       <progress class="<%= class_name %>" value=<%= "#{wish_list.granted_wish_rate}" %> max="100"></progress>
       <div class="card-actions justify-end mb-0">
