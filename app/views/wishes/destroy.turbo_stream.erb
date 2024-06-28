@@ -3,3 +3,5 @@
 <% if @wishes.blank? %>
   <%= turbo_stream.append 'wishes', partial: 'nothing_wishes' %>
 <% end %>
+<%# グラフ更新 %>
+<%= turbo_stream_graph %>
