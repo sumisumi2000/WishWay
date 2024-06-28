@@ -24,4 +24,16 @@ class WishList < ApplicationRecord
     # データベースを更新
     self.update!(granted_wish_rate: (granted_count / wishes_count.to_f * 100).to_i)
   end
+
+  # granted_wish_rate の値に応じてカラーを切り替え
+  def rate_color
+    case granted_wish_rate
+    when 0..33
+      "primary"
+    when 34..66
+      "secondary"
+    when 67..100
+      "accent"
+    end
+  end
 end

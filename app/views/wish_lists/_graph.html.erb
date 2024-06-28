@@ -1,5 +1,5 @@
 <div class="flex flex-row items-center gap-1">
-  <div class="radial-progress text-primary flex flex-col items-center" style="--value:<%= wish_list.granted_wish_rate %>; --size:5rem; --thickness:5px;" role="progressbar">
+  <div class="radial-progress text-<%= wish_list.rate_color %> flex flex-col items-center" style="--value:<%= wish_list.granted_wish_rate %>; --size:5rem; --thickness:5px;" role="progressbar">
     <div class="text-xs">達成率</div>
     <div class="text-lg md:text-xl"><%= wish_list.granted_wish_rate %>%</div>
   </div>
