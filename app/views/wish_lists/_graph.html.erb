@@ -1,6 +1,5 @@
 <div class="flex flex-row items-center gap-1">
-  <div class="hidden text-primary text-secondary"></div>
-  <% class_name = "radial-progress text-#{wish_list.rate_color} flex flex-col items-center" %>
+  <% class_name = "radial-progress #{wish_list.is_primary? ? "text-primary" : wish_list.is_secondary? ? "text-secondary" : "text-accent"} flex flex-col items-center" %>
   <% style_name = "--value:#{wish_list.granted_wish_rate}; --size:5rem; --thickness:5px;" %>
   <div class="<%= class_name %>" style="<%= style_name %>" role="progressbar">
     <div class="text-xs">達成率</div>
