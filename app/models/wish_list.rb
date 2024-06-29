@@ -34,4 +34,9 @@ class WishList < ApplicationRecord
   def is_secondary?
     (34..66).include?(granted_wish_rate)
   end
+
+  # リストに一つも Wish がないかどうか
+  def nothing_wish?
+    wishes.size.zero?
+  end
 end
