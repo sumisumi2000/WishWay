@@ -18,6 +18,8 @@
     <meta property="og:description" content="バケットリストの作成と共有" />
     <meta property="og:image" content="https://i.gyazo.com/7b31f55dfa608addea69247f09c0bb28.jpg" />
     <!-- Twitter リンクカードここまで -->
+    <%# ファビコン画像 %>
+    <%= favicon_link_tag image_path('favicon.png'), type: 'image/png' %>
 
     <%= yield :head %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
