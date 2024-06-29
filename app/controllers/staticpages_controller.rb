@@ -6,4 +6,6 @@ class StaticpagesController < ApplicationController
 
   def policy; end
 
+  def term; end
+
 end
