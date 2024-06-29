@@ -1,4 +1,4 @@
 <%# X シェアリンク %>
-<%= link_to "https://twitter.com/intent/tweet?url=#{wish_list_url(wish_list.user)}&text=#{wish_list.title}を作成したよ！%0a%0a%23WishWay %23RUNTEQ祭%0a%0a", :onclick=>"window.open(this.href,'hoge', 'height=480, width=640');return false;", rel: "noopener noreferrer", data: { toggle: "tooltip", placement: "bottom" }, class: 'mx-4', id: 'X_share' do %>
+<%= link_to "https://twitter.com/intent/tweet?url=#{wish_list_url(wish_list.user)}&text=#{wish_list.title}を作成したよ！%0a%0a%23WishWay%0a%0a", :onclick=>"window.open(this.href,'hoge', 'height=480, width=640');return false;", rel: "noopener noreferrer", data: { toggle: "tooltip", placement: "bottom" }, class: 'mx-4', id: 'X_share' do %>
   <button class="btn btn-outline btn-sm md:btn-md text-xs md:text-base">X でシェア</button>
 <% end %>
