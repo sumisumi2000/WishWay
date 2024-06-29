@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :notifications, only: %i[edit update]
   # 問い合わせフォーム
   get '/form', to: 'staticpages#form', as: :inquiry_form
+  get '/policy', to: 'staticpages#policy', as: :privacy_policy
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
