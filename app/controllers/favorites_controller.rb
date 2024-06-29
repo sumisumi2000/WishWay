@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def index
     # サブクエリを作成して、各 wish_list と favorites.created_at の値を取得
-    subquery = current_user.favorite_wish_lists.select('wish_lists.*, favorites.created_at as favorites_created_at').where(is_public: true).joins(:favorites).group('wish_lists.id')
+    subquery = current_user.favorite_wish_lists.select('wish_lists.*, MAX(favorites.created_at) as favorites_created_at').where(is_public: true).joins(:favorites).group('wish_lists.id')
     # サブクエリをベースに Ransack のクエリを作成
     @q = WishList.from(subquery, :wish_lists).ransack(params[:q])
     # 最終的なクエリを構築してページング
