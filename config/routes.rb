@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
   # 通知
   resources :notifications, only: %i[edit update]
+  # 問い合わせフォーム
+  get '/form', to: 'staticpages#form', as: :inquiry_form
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
