@@ -66,7 +66,7 @@ class WishListsController < ApplicationController
   # オートコンプリート
   def search
     # 入力単語がタイトルに含まれるリストを取得
-    @wish_lists = WishList.where("title like ?", "%#{params[:q]}%").limit(15).order(title: :desc)
+    @wish_lists = WishList.where("title like ? AND is_public = ?", "%#{params[:q]}%", true).limit(15).order(title: :desc)
     render partial: 'shared/search_result'
   end
 
