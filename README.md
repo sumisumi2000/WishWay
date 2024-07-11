@@ -104,7 +104,6 @@ LINE 通知機能（メールと比較して導入するか検討）：[LINE Mes
 | バックエンド   | Rails 7.1.3.2 (Ruby 3.2.2 )                         |
 | データベース   | PostgreSQL                                          |
 | インフラ       | Render.com                                          |
-| 環境構築       | Docker / docker-compose                             |
 
 ## 画面遷移図
 
