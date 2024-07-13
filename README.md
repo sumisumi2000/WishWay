@@ -4,7 +4,7 @@
 
 ## サービス URL
 
-https://wishway.onrender.com
+https://wish-way.com
 
 ## サービス概要
 
