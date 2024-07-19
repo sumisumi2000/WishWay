@@ -91,4 +91,11 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # coverage
+  if ENV['RAILS_ENV'] == 'test'
+    require 'simplecov'
+    SimpleCov.start 'rails'
+    puts "required simplecov"
+  end
 end
