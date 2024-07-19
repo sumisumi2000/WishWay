@@ -43,3 +43,5 @@
 .DS_Store
 
 google_client.json
+
+coverage
