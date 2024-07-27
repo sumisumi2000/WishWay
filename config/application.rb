@@ -27,7 +27,7 @@ module WishWay
     # ジェネレータの設定を変更
     config.generators do |g|
       g.helper false             # helper ファイルを作成しない
-      g.test_framework false     # test ファイルを作成しない
+      g.test_framework :rspec     # test ファイルを作成しない
       g.skip_routes true         # ルーティングの記述を作成しない
     end
 
