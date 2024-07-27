@@ -4,13 +4,13 @@ RSpec.describe User, type: :model do
   describe 'バリデーションチェック' do
     context '成功パターン' do
       it '設定したバリデーションが機能しているか' do
-        user = build(:user)
+        user = create(:user)
         expect(user).to be_valid
         expect(user.errors).to be_empty
       end
       it 'email が被らない場合、バリデーションエラーが起きないか' do
         user = create(:user)
-        user2 = build(:user, email: 'test@gmail.com')
+        user2 = create(:user, email: 'test@gmail.com')
         expect(user2).to be_valid
         expect(user2.errors).to be_empty
       end
