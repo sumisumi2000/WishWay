@@ -26,6 +26,17 @@ class UsersController < ApplicationController
 
   def show; end
 
+  def edit; end
+
+  def update
+    if user_params[:name].blank?
+      # TODO : ユーザー名が空の場合のフラッシュメッセージ
+      render :edit, status: :unprocessable_entity
+    elsif current_user.update(user_params)
+      # TODO : ユーザー名の変更に成功した場合のフラッシュメッセージ
+    end
+  end
+
   private
 
   # Only allow a list of trusted parameters through
