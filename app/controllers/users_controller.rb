@@ -30,10 +30,13 @@ class UsersController < ApplicationController
 
   def update
     if user_params[:name].blank?
-      # TODO : ユーザー名が空の場合のフラッシュメッセージ
+      flash.now[:alert] = "ユーザー名を入力してください"
       render :edit, status: :unprocessable_entity
     elsif current_user.update(user_params)
-      # TODO : ユーザー名の変更に成功した場合のフラッシュメッセージ
+      flash.now[:notice] = "ユーザー名を変更しました"
+    else
+      flash.now[:alert] = "ユーザー情報の更新に失敗しました"
+      render :edit, status: :unprocessable_entity
     end
   end
 
