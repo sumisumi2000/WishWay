@@ -9,8 +9,8 @@
       <li>
         <%= link_to '一覧ページ', wish_lists_path, class: "px-1 md:px-3" %>
       </li>
-      <li>
-        <%= link_to "#{current_user.name}'s リスト", wish_list_path(current_user.id), class: "px-1 md:px-3" %>
+      <li id="header_user_name">
+        <%= render 'shared/header_user_name' %>
       </li>
       <li>
         <details>
