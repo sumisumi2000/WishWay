@@ -10,9 +10,7 @@
     <div class="md:w-1/2 md:mx-auto">
       <div class="mb-5">
         <p class="text-base md:text-xl mb-2">ユーザーネーム</p>
-        <div class="bg-base-200 rounded p-2">
-          <p class="text-sm md:text-base"><%= current_user.name %></p>
-        </div>
+        <%= render 'name_field'%>
       </div>
       <div class="mb-5">
         <p class="text-base md:text-xl mb-2">メールアドレス</p>

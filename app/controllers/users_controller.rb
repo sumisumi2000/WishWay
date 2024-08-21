@@ -26,6 +26,20 @@ class UsersController < ApplicationController
 
   def show; end
 
+  def edit; end
+
+  def update
+    if user_params[:name].blank?
+      flash.now[:alert] = "ユーザー名を入力してください"
+      render :edit, status: :unprocessable_entity
+    elsif current_user.update(user_params)
+      flash.now[:notice] = "ユーザー名を変更しました"
+    else
+      flash.now[:alert] = "ユーザー情報の更新に失敗しました"
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # Only allow a list of trusted parameters through

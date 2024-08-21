@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'staticpages#top'
   # ユーザー
-  resources :users, only: %i[new create show update]
+  resources :users, only: %i[new create show edit update]
   # ログイン
   get 'login', to: 'user_sessions#new', as: :login
   post 'login', to: "user_sessions#create"
