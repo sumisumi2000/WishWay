@@ -1,0 +1,4 @@
+<%= form_with model: current_user,  id: 'name_form' do |form| %>
+  <%= form.text_field :name, class: "w-3/4 bg-base-200 rounded p-2 mr-1" %>
+  <%= form.submit '保存する', class: "btn btn-sm ml-2" %>
+<% end %>

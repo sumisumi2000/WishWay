@@ -4,7 +4,7 @@
   </div>
   <!-- 編集アイコン -->
   <div class="tooltip" data-tip="編集する">
-    <%= link_to '#', data: { turbo_stream: true } do %>
+    <%= link_to edit_user_path(current_user), data: { turbo_stream: true } do %>
       <i class="fa-solid fa-pen-to-square text-2xl"></i>
     <% end %>
   </div>
