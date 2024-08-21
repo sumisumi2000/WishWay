@@ -1,0 +1,11 @@
+<div id="name_field" class="flex items-center">
+  <div class="bg-base-200 rounded p-2 mr-1 grow">
+    <p class="text-sm md:text-base"><%= current_user.name %></p>
+  </div>
+  <!-- 編集アイコン -->
+  <div class="tooltip" data-tip="編集する">
+    <%= link_to '#', data: { turbo_stream: true } do %>
+      <i class="fa-solid fa-pen-to-square text-2xl"></i>
+    <% end %>
+  </div>
+</div>
