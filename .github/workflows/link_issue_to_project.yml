@@ -11,5 +11,5 @@ jobs:
       - uses: topi0247/link_to_projects_with_field@main
         with:
           ProjectsNumber: 6
-          FiledKeyValues: '[{ "key": "Status", "value": "追加 issue" }]'
+          FiledKeyValues: '[{ "key": "Status", "value": "add_issue" }]'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
