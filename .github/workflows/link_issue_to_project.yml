@@ -1,0 +1,15 @@
+name: Link Projects
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  link_projects:
+    runs-on: ubuntu-latest
+    name: test
+    steps:
+      - uses: topi0247/link_to_projects_with_field@main
+        with:
+          ProjectsNumber: 6
+          FiledKeyValues: '[{ "key": "Status", "value": "追加 issue" }]'
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
